@@ -12,13 +12,13 @@ import seedu.recipe.model.Model;
 import seedu.recipe.model.recipe.Recipe;
 
 /**
- * Adds a recipe to the address book.
+ * Adds a recipe to the recipe book.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the recipe book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -34,7 +34,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New recipe added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This recipe already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This recipe already exists in the recipe book";
 
     private final Recipe toAdd;
 
