@@ -33,8 +33,8 @@ public class EditRecipeDescriptorBuilder {
     public EditRecipeDescriptorBuilder(Recipe recipe) {
         descriptor = new EditRecipeDescriptor();
         descriptor.setName(recipe.getName());
-        descriptor.setDuration(recipe.getDuration());
         descriptor.setPortion(recipe.getPortion());
+        descriptor.setDuration(recipe.getDuration());
         descriptor.setTags(recipe.getTags());
         descriptor.setIngredients(recipe.getIngredients());
         descriptor.setSteps(recipe.getSteps());
@@ -49,18 +49,18 @@ public class EditRecipeDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code RecipeDuration} of the {@code EditRecipeDescriptor} that we are building.
+     * Sets the {@code Portion} of the {@code EditRecipeDescriptor} that we are building.
      */
-    public EditRecipeDescriptorBuilder withDuration(double time, TimeUnit unit) {
-        descriptor.setDuration(new RecipeDuration(time, unit));
+    public EditRecipeDescriptorBuilder withPortion(String portion) {
+        descriptor.setPortion(RecipePortion.of(portion));
         return this;
     }
 
     /**
-     * Sets the {@code Portion} of the {@code EditRecipeDescriptor} that we are building.
+     * Sets the {@code RecipeDuration} of the {@code EditRecipeDescriptor} that we are building.
      */
-    public EditRecipeDescriptorBuilder withPortion(int lowerRange, int upperRange, PortionUnit portionUnit) {
-        descriptor.setPortion(new RecipePortion(lowerRange, upperRange, portionUnit));
+    public EditRecipeDescriptorBuilder withDuration(String duration) {
+        descriptor.setDuration(RecipeDuration.of(duration));
         return this;
     }
 

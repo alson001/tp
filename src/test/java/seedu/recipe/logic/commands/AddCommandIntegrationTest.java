@@ -39,7 +39,7 @@ public class AddCommandIntegrationTest {
     @Test
     public void execute_duplicateRecipe_throwsCommandException() {
         Recipe recipeInList = model.getRecipeBook().getRecipeList().get(0);
-        assertCommandFailure(new AddCommand(recipeInList), model, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(new AddCommand(recipeInList), model, AddCommand.MESSAGE_DUPLICATE_RECIPE);
     }
 
 }
