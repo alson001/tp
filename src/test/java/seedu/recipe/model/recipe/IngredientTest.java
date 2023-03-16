@@ -14,27 +14,25 @@ public class IngredientTest {
     }
 
     @Test
-    public void constructor_invalidPhone_throwsIllegalArgumentException() {
-        String invalidPhone = "";
-        assertThrows(IllegalArgumentException.class, () -> new Ingredient(invalidPhone));
+    public void constructor_invalidIngredient_throwsIllegalArgumentException() {
+        String invalidIngredient = "";
+        assertThrows(IllegalArgumentException.class, () -> new Ingredient(invalidIngredient));
     }
 
     @Test
-    public void isValidPhone() {
-        // null phone number
+    public void isValidIngredient() {
+        // null ingredient
         assertThrows(NullPointerException.class, () -> Ingredient.isValidIngredient(null));
 
-        // invalid phone numbers
+        // invalid ingredient
         assertFalse(Ingredient.isValidIngredient("")); // empty string
         assertFalse(Ingredient.isValidIngredient(" ")); // spaces only
-        assertFalse(Ingredient.isValidIngredient("91")); // less than 3 numbers
-        assertFalse(Ingredient.isValidIngredient("phone")); // non-numeric
-        assertFalse(Ingredient.isValidIngredient("9011p041")); // alphabets within digits
-        assertFalse(Ingredient.isValidIngredient("9312 1534")); // spaces within digits
+        assertFalse(Ingredient.isValidIngredient("93121534")); // numbers
+        assertFalse(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
 
-        // valid phone numbers
-        assertTrue(Ingredient.isValidIngredient("911")); // exactly 3 numbers
-        assertTrue(Ingredient.isValidIngredient("93121534"));
-        assertTrue(Ingredient.isValidIngredient("124293842033123")); // long phone numbers
+        // valid ingredient
+        assertTrue(Ingredient.isValidIngredient("salt")); // non-numeric
+        assertTrue(Ingredient.isValidIngredient("fish oil")); // spaces within ingredients
+        assertTrue(Ingredient.isValidIngredient("Salt")); // Caps
     }
 }
