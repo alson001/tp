@@ -1,7 +1,8 @@
 package seedu.recipe.model.recipe;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_FISH;
 import static seedu.recipe.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -27,12 +28,26 @@ public class IngredientTest {
         // invalid ingredient
         assertFalse(Ingredient.isValidIngredient("")); // empty string
         assertFalse(Ingredient.isValidIngredient(" ")); // spaces only
-//        assertFalse(Ingredient.isValidIngredient("93121534")); // numbers
-//        assertFalse(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
 
         // valid ingredient
         assertTrue(Ingredient.isValidIngredient("salt")); // non-numeric
         assertTrue(Ingredient.isValidIngredient("fish oil")); // spaces within ingredients
         assertTrue(Ingredient.isValidIngredient("Salt")); // Caps
+        assertTrue(Ingredient.isValidIngredient("93121534")); // numbers
+        assertTrue(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
+    }
+
+    @Test
+    public void equals() {
+        Ingredient fish = new Ingredient(VALID_INGREDIENT_FISH);
+        Ingredient chicken = new Ingredient(VALID_INGREDIENT_CHICKEN);
+        assertEquals(fish, new Ingredient(VALID_INGREDIENT_FISH));
+        assertNotEquals(fish, chicken);
+    }
+
+    @Test
+    public void testString() {
+        Ingredient chicken = new Ingredient(VALID_INGREDIENT_CHICKEN);
+        assertEquals(VALID_INGREDIENT_CHICKEN, chicken.toString());
     }
 }
