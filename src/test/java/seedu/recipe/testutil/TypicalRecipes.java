@@ -28,7 +28,7 @@ public class TypicalRecipes {
     public static final List<Step> CACIO_STEPS = List.of(
         new Step("Bring 3 quarts water to a boil in a 5-qt. pot. "
                 + "Season with salt; add pasta and cook, stirring occasionally, "
-                + "until about 2 minutes before tender. Drain, reserving ¾ cup "
+                + "until about 2 minutes before tender. Drain, reserving 3/4 cup "
                 + "pasta cooking water."),
         new Step("Meanwhile, melt 2 Tbsp. butter in a Dutch oven or other large pot "
                 + "or skillet over medium heat. Add pepper and cook, swirling pan, "

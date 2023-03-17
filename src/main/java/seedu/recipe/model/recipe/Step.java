@@ -1,5 +1,8 @@
 package seedu.recipe.model.recipe;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.recipe.commons.util.AppUtil.checkArgument;
+
 /**
  * Represents one of a recipe's steps for a recipe in the recipe book.
  * Guarantees: immutable, is valid as declared in {@link #isValidStep(String)}
@@ -11,9 +14,10 @@ public class Step {
 
     /*
      * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * otherwise " " (a blank string) becomes a valid input. The string
+     * should also not end with whitespace.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "^(\\S+)(\\s+\\S+)*(?!\n)$";
 
     public final String description;
 
@@ -22,6 +26,8 @@ public class Step {
      * @param description A valid description for the step
      */
     public Step(String description) {
+        requireNonNull(description);
+        checkArgument(isValidStep(description), MESSAGE_CONSTRAINTS);
         this.description = description;
     }
 
