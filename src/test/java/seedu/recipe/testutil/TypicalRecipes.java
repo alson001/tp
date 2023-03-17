@@ -1,15 +1,5 @@
 package seedu.recipe.testutil;
 
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.recipe.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import java.util.*;
 
@@ -28,11 +18,11 @@ public class TypicalRecipes {
     public static final Set<Tag> CACIO_TAGS = Set.of(new Tag("Italian"));
     public static final List<Ingredient> CACIO_INGREDIENTS = List.of(
         new Ingredient("Kosher salt"),
-        new Ingredient("6oz. pasta (such as egg tagliolini, bucatini, or spaghetti)"),
-        new Ingredient("3 Tbsp. unsalted butter, cubed, divided"),
-        new Ingredient("1 tsp. freshly cracked black pepper"),
-        new Ingredient("¾ cup finely grated Grana Padano or Parmesan"),
-        new Ingredient("⅓ cup finely grated Pecorino")
+        new Ingredient("6 oz pasta (such as egg tagliolini, bucatini, or spaghetti)"),
+        new Ingredient("3 Tbsp unsalted butter, cubed, divided"),
+        new Ingredient("1 tsp freshly cracked black pepper"),
+        new Ingredient("0.75 cup finely grated Grana Padano or Parmesan"),
+        new Ingredient("0.33 cup finely grated Pecorino")
     );
     public static final List<Step> CACIO_STEPS = List.of(
         new Step("Bring 3 quarts water to a boil in a 5-qt. pot. "
@@ -42,7 +32,7 @@ public class TypicalRecipes {
         new Step("Meanwhile, melt 2 Tbsp. butter in a Dutch oven or other large pot "
                 + "or skillet over medium heat. Add pepper and cook, swirling pan, "
                 + "until toasted, about 1 minute."),
-        new Step("Add ½ cup reserved pasta water to skillet and bring to a simmer. "
+        new Step("Add 0.5 cup reserved pasta water to skillet and bring to a simmer. "
                 + "Add pasta and remaining butter. Reduce heat to low and add Grana Padano,"
                 + "stirring and tossing with tongs until melted. Remove pan from heat; add "
                 + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
@@ -59,15 +49,15 @@ public class TypicalRecipes {
             RecipePortion.of("2 - 3 servings"),
             RecipeDuration.of("35 minutes"),
             Set.of(new Tag("American"), new Tag("Breakfast")),
-            List.of(new Ingredient("200g self-raising flour"),
+            List.of(new Ingredient("200 g self-raising flour"),
                     new Ingredient("1 tsp baking powder"),
                     new Ingredient("1 egg"),
                     new Ingredient("1 knob butter"),
-                    new Ingredient("150g pack blueberry"),
+                    new Ingredient("150 g pack blueberry"),
                     new Ingredient("golden or maple syrup"),
                     new Ingredient("sunflower oil or a little butter")),
             List.of(
-                    new Step("Mix together 200g self-raising flour, 1 tsp baking powder and a "
+                    new Step("Mix together 200 g self-raising flour, 1 tsp baking powder and a "
                             + "pinch of salt in a large bowl."),
                     new Step("Beat 1 egg with 300ml milk, make a well in the centre of the dry ingredients and whisk "
                             + "in the milk to make a thick smooth batter."),
@@ -88,24 +78,24 @@ public class TypicalRecipes {
             RecipeDuration.of("1 hour"),
             Set.of(new Tag("Indian")),
             List.of(new Ingredient("2 cups short-grain rice"),
-                new Ingredient("½ cup urad dal (split husked black lentils)"),
+                new Ingredient("0.5 cup urad dal (split husked black lentils)"),
                 new Ingredient("1 teaspoon fenugreek seeds"),
-                new Ingredient("½ teaspoon salt"),
+                new Ingredient("0.5 teaspoon salt"),
                 new Ingredient("Vegetable oil, for frying"),
                 new Ingredient("3 tablespoons ghee or vegetable oil"),
                 new Ingredient("1 teaspoon mustard seeds"),
-                new Ingredient("½ teaspoon cumin seeds"),
+                new Ingredient("0.5 teaspoon cumin seeds"),
                 new Ingredient("2 small dried hot red peppers"),
                 new Ingredient("1 medium onion, diced"),
-                new Ingredient("½ teaspoon salt"),
-                new Ingredient("½ teaspoon turmeric"),
+                new Ingredient("0.5 teaspoon salt"),
+                new Ingredient("0.5 teaspoon turmeric"),
                 new Ingredient("Pinch of asafetida"),
                 new Ingredient("1 tablespoon grated ginger"),
                 new Ingredient("6 to 8 curry leaves"),
                 new Ingredient("4 garlic cloves, minced"),
                 new Ingredient("2 small green chiles, finely chopped"),
-                new Ingredient("1½ pounds yellow-fleshed potatoes, such as Yukon Gold, boiled, peeled and cubed"),
-                new Ingredient("½ cup roughly chopped cilantro, leaves and tender stems")),
+                new Ingredient("1.5 pounds yellow-fleshed potatoes, such as Yukon Gold, boiled, peeled and cubed"),
+                new Ingredient("0.5 cup roughly chopped cilantro, leaves and tender stems")),
             List.of(new Step("Make the dosa batter: Put rice in a bowl, rinse well and cover with "
                             + "4 cups cold water. Put urad dal and fenugreek seeds in a small bowl, rinse "
                             + "well and add cold water to cover. Leave both to soak for 4 to 6 hours."),
@@ -124,7 +114,7 @@ public class TypicalRecipes {
                         + "about 1 minute, then add red peppers and onion. Cook, stirring until onions have "
                         + "softened, about 5 minutes. Season lightly with salt. Add turmeric, asafetida, ginger, "
                         + "curry leaves, garlic and green chile. Stir to coat and let sizzle for 1 minute."),
-                new Step("Add potatoes and ½ cup water. Cook, stirring well to combine, until "
+                new Step("Add potatoes and 0.5 cup water. Cook, stirring well to combine, until "
                         + "liquid has evaporated, about 5 minutes. Mash potatoes a bit with the back of "
                         + "a wooden spoon. Season well with salt, add cilantro, then set aside at room"
                         + "temperature. "
@@ -132,11 +122,11 @@ public class TypicalRecipes {
                 new Step("To make dosas, set a griddle or cast-iron skillet over medium heat. "
                         + "Brush with about 1 teaspoon vegetable oil. Ladle ¼ cup batter in the center "
                         + "of griddle. Using bottom of ladle, quickly spread batter outward in a circular motion "
-                        + "to a diameter of about 7 inches. Drizzle ½ teaspoon oil over the top. Leave dosa batter"
+                        + "to a diameter of about 7 inches. Drizzle 0.5 teaspoon oil over the top. Leave dosa batter"
                         + " to brown "
                         + "gradually until outer edges begin to look dry, about 2 minutes, cooking on one side"
                         + " only. With a spatula, carefully loosen dosa from griddle. Bottom should be crisp and "
-                        + "beautifully browned. Spoon ½ cup potato filling onto top of dosa, centering it as a"
+                        + "beautifully browned. Spoon 0.5 cup potato filling onto top of dosa, centering it as a"
                         + " strip in the middle of the round dosa. Flatten the potato mixture slightly. Using "
                         + "the spatula, fold the sides of the dosa around the filling to make a cylindrical shape."
                         + " Serve immediately. Continue making dosas one at a time."))).build();
@@ -167,7 +157,7 @@ public class TypicalRecipes {
             List.of(new Ingredient("120 Grams Self Rising Flour + additional to coat"),
                 new Ingredient("175 Grams White Fleshed Fish (such as Cod)"),
                 new Ingredient("1 Medium Egg White"),
-                new Ingredient("160 ML (1/2 cup or little under half a bottle) Light Beer or Lager"),
+                new Ingredient("160 ML (0.5 cup or little under half a bottle) Light Beer or Lager"),
                 new Ingredient("1 Large Waxy Potato, Peeled"),
                 new Ingredient("Sunflower Oil"),
                 new Ingredient("Salt"),
@@ -176,7 +166,7 @@ public class TypicalRecipes {
                 new Ingredient("1 Tablespoon of Gherkins, chopped "),
                 new Ingredient("50 Grams Creme Fraiche"),
                 new Ingredient("200 Grams Mayonnaise"),
-                new Ingredient("3/4 Shallot Diced"),
+                new Ingredient("0.75 Shallot Diced"),
                 new Ingredient("Lemon Juice (about 1 Teaspoon)"),
                 new Ingredient("Hot Sauce (Optional)")),
             List.of(new Step("Get oil in pan medium-high heat for frying before assembling ingredients. Do not need"
@@ -188,7 +178,7 @@ public class TypicalRecipes {
                         + " mixture. Make sure fish is fully battered and ad to oil"),
                 new Step("Once fish is in, baste the fish with oil. Let first side cook until golden brown and flip."
                         + " Basting fish with oil on other side. Take pan on and off oil so that the oil does not get"
-                        + " too hot. Fish should be in oil 3-3 1/2 minutes. Once finished put on plate with paper towel"
+                        + " too hot. Fish should be in oil 3-3 0.5 minutes. Once finished put on plate with paper towel"
                         + " and put in warm oven"),
                 new Step("Chop potato into square, then chop into tall skinny fries (the skinnier the fry the quicker"
                         + " they will cook). Then roll in paper towel to dry any excess moisture. Add new oil to pain"

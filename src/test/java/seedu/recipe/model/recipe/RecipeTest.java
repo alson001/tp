@@ -11,7 +11,6 @@ import seedu.recipe.model.recipe.exceptions.RecipePortionNotPresentException;
 import seedu.recipe.model.tag.Tag;
 import seedu.recipe.testutil.RecipeBuilder;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -166,15 +165,15 @@ public class RecipeTest {
 
     @Test
     public void setSteps() {
-        List<Step> newStepList = new ArrayList<>(CACIO_STEPS);
-        Step[] stepsToAdd = new Step[]{
+//        List<Step> newStepList = new ArrayList<>(CACIO_STEPS);
+        Step[] newSteps = new Step[]{
                 new Step("Step one"),
                 new Step("Step two")
         };
         Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
-        test.setSteps(stepsToAdd);
-        newStepList.addAll(List.of(stepsToAdd));
-        assertEquals(newStepList, test.getSteps());
+        test.setSteps(newSteps);
+//        newStepList.addAll(List.of(stepsToAdd));
+        assertEquals(List.of(newSteps), test.getSteps());
     }
 
     //Equality
@@ -187,7 +186,7 @@ public class RecipeTest {
         assertFalse(FISH_AND_CHIPS.isSameRecipe(null));
 
         // same name, some other attributes different -> returns true
-        assertFalse(FISH_AND_CHIPS.isSameRecipe(FISH_AND_CHIPS_DIFF_TAGS));
+        assertTrue(FISH_AND_CHIPS.isSameRecipe(FISH_AND_CHIPS_DIFF_TAGS));
 
         // different name, all other attributes same -> returns false
         assertFalse(MASALA_DOSA.isSameRecipe(DOSA_COPY_DIFF_NAME));
