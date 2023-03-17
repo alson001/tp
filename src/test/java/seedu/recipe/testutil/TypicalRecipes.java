@@ -21,32 +21,39 @@ import seedu.recipe.model.tag.Tag;
  * A utility class containing a list of {@code Recipe} objects to be used in tests.
  */
 public class TypicalRecipes {
-    // Manually added
+    //Individual Fields
+    public static final Name CACIO_NAME = new Name("Cacio e Pepe");
+    public static final RecipePortion CACIO_PORTION = RecipePortion.of("1 - 2 servings");
+    public static final RecipeDuration CACIO_DURATION = RecipeDuration.of("15 minutes");
+    public static final Set<Tag> CACIO_TAGS = Set.of(new Tag("Italian"));
+    public static final List<Ingredient> CACIO_INGREDIENTS = List.of(
+        new Ingredient("Kosher salt"),
+        new Ingredient("6oz. pasta (such as egg tagliolini, bucatini, or spaghetti)"),
+        new Ingredient("3 Tbsp. unsalted butter, cubed, divided"),
+        new Ingredient("1 tsp. freshly cracked black pepper"),
+        new Ingredient("¾ cup finely grated Grana Padano or Parmesan"),
+        new Ingredient("⅓ cup finely grated Pecorino")
+    );
+    public static final List<Step> CACIO_STEPS = List.of(
+        new Step("Bring 3 quarts water to a boil in a 5-qt. pot. "
+                + "Season with salt; add pasta and cook, stirring occasionally, "
+                + "until about 2 minutes before tender. Drain, reserving ¾ cup "
+                + "pasta cooking water."),
+        new Step("Meanwhile, melt 2 Tbsp. butter in a Dutch oven or other large pot "
+                + "or skillet over medium heat. Add pepper and cook, swirling pan, "
+                + "until toasted, about 1 minute."),
+        new Step("Add ½ cup reserved pasta water to skillet and bring to a simmer. "
+                + "Add pasta and remaining butter. Reduce heat to low and add Grana Padano,"
+                + "stirring and tossing with tongs until melted. Remove pan from heat; add "
+                + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
+                + "and pasta is al dente. (Add more pasta water if sauce seems dry.) Transfer "
+                + "pasta to warm bowls and serve."));
+
     public static final Recipe CACIO_E_PEPE = new RecipeBuilder(
-            new Name("Cacio e Pepe"),
-            RecipePortion.of("1 - 2 servings"),
-            RecipeDuration.of("15 minutes"),
-            Set.of(new Tag("Italian")),
-            List.of(new Ingredient("Kosher salt"),
-                new Ingredient("6oz. pasta (such as egg tagliolini, bucatini, or spaghetti)"),
-                new Ingredient("3 Tbsp. unsalted butter, cubed, divided"),
-                new Ingredient("1 tsp. freshly cracked black pepper"),
-                new Ingredient("¾ cup finely grated Grana Padano or Parmesan"),
-                new Ingredient("⅓ cup finely grated Pecorino")),
-            List.of(
-                new Step("Bring 3 quarts water to a boil in a 5-qt. pot. "
-                        + "Season with salt; add pasta and cook, stirring occasionally, "
-                        + "until about 2 minutes before tender. Drain, reserving ¾ cup "
-                        + "pasta cooking water."),
-                new Step("Meanwhile, melt 2 Tbsp. butter in a Dutch oven or other large pot "
-                        + "or skillet over medium heat. Add pepper and cook, swirling pan, "
-                        + "until toasted, about 1 minute."),
-                new Step("Add ½ cup reserved pasta water to skillet and bring to a simmer. "
-                        + "Add pasta and remaining butter. Reduce heat to low and add Grana Padano,"
-                        + "stirring and tossing with tongs until melted. Remove pan from heat; add "
-                        + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
-                        + "and pasta is al dente. (Add more pasta water if sauce seems dry.) Transfer "
-                        + "pasta to warm bowls and serve."))).build();
+            CACIO_NAME, CACIO_PORTION, CACIO_DURATION, CACIO_TAGS,
+            CACIO_INGREDIENTS, CACIO_STEPS).build();
+
+    // Manually added
     public static final Recipe BLUEBERRY_PANCAKES = new RecipeBuilder(
             new Name("American blueberry pancakes"),
             RecipePortion.of("2 - 3 servings"),
@@ -133,6 +140,7 @@ public class TypicalRecipes {
                         + " strip in the middle of the round dosa. Flatten the potato mixture slightly. Using "
                         + "the spatula, fold the sides of the dosa around the filling to make a cylindrical shape."
                         + " Serve immediately. Continue making dosas one at a time."))).build();
+
     public static final Recipe GRILLED_CHEESE = new RecipeBuilder(
             new Name("Pan-fried camembert sandwich"),
             RecipePortion.of("1 portion"),

@@ -37,6 +37,7 @@ public class Recipe {
     public Name getName() {
         return name;
     }
+
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -47,7 +48,7 @@ public class Recipe {
     }
 
     public RecipeDuration getDuration() {
-        duration.orElseThrow(RecipePortionNotPresentException::new);
+        duration.orElseThrow(RecipeDurationNotPresentException::new);
         return duration.get();
     }
 
@@ -96,7 +97,6 @@ public class Recipe {
     public void setSteps(Step... steps) {
         this.steps.addAll(List.of(steps));
     }
-
 
 
     /**
