@@ -3,6 +3,7 @@ package seedu.recipe.model.recipe;
 import static org.junit.jupiter.api.Assertions.*;
 import static seedu.recipe.logic.commands.CommandTestUtil.*;
 import static seedu.recipe.testutil.Assert.assertThrows;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_NAME;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,7 +36,8 @@ public class NameTest {
         assertTrue(Name.isValidName("12345")); // numbers only
         assertTrue(Name.isValidName("Curry Chicken")); // with capital letters
         assertTrue(Name.isValidName("3D Dog Cake")); // alphanumeric characters
-        assertTrue(Name.isValidName("Chargrilled Mackerel With Sweet And Sour Beetroot")); // long names
+        assertTrue(Name.isValidName("Chargrilled Mackerel With Sweet And Sour Beetroot")); // long names;
+        assertTrue(Name.isValidName("Cacio e Pepe"));
     }
 
     @Test
@@ -44,6 +46,9 @@ public class NameTest {
         Name chicken = new Name(VALID_NAME_CHICKEN);
         assertEquals(fish, new Name(VALID_NAME_FISH));
         assertNotEquals(fish, chicken);
+        Name cacio = new Name("Cacio e Pepe");
+        assertEquals(new Name("Cacio e Pepe"), cacio);
+        assertEquals(new Name("Cacio e Pepe"), CACIO_NAME);
     }
 
     @Test

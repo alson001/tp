@@ -1,6 +1,9 @@
 package seedu.recipe.model.recipe;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_CHICKEN;
 import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_FISH;
 import static seedu.recipe.testutil.Assert.assertThrows;
@@ -35,6 +38,7 @@ public class IngredientTest {
         assertTrue(Ingredient.isValidIngredient("Salt")); // Caps
         assertTrue(Ingredient.isValidIngredient("93121534")); // numbers
         assertTrue(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
+        assertTrue(Ingredient.isValidIngredient("1 container (15 ounces) ricotta cheese"));
     }
 
     @Test
