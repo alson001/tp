@@ -19,14 +19,14 @@ public class SampleDataUtil {
         cacioEPepePasta.setDuration(RecipeDuration.of("15 minutes"));
         cacioEPepePasta.setPortion(RecipePortion.of("1 - 3 person"));
 //
-//        cacioEPepePasta.setIngredients(
-//                new Ingredient("2 whole eggs"),
-//                new Ingredient("100g spaghetti noodles")
-//        );
-//        cacioEPepePasta.setSteps(
-//                new Step("Crack the egg and separate the yolks and whites"),
-//                new Step("Raise a pot of water to the boil and add the spaghetti")
-//        );
+        cacioEPepePasta.setIngredients(
+                new Ingredient("2 whole eggs"),
+                new Ingredient("100g spaghetti noodles")
+        );
+        cacioEPepePasta.setSteps(
+                new Step("Crack the egg and separate the yolks and whites"),
+                new Step("Raise a pot of water to the boil and add the spaghetti")
+        );
 
         return new Recipe[] {
                 cacioEPepePasta

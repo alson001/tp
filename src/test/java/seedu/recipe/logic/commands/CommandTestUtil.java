@@ -72,11 +72,12 @@ public class CommandTestUtil {
                 .withPortion(VALID_PORTION_CHICKEN).withDuration(VALID_DURATION_CHICKEN)
                 .withTags(VALID_TAG_CHINESE).withIngredients(VALID_INGREDIENT_CHICKEN)
                 .withSteps(VALID_STEP_CHICKEN).build();
-        DESC_FISH =  new EditRecipeDescriptorBuilder().withName(VALID_NAME_FISH)
+        DESC_FISH = new EditRecipeDescriptorBuilder().withName(VALID_NAME_FISH)
                 .withPortion(VALID_PORTION_FISH).withDuration(VALID_DURATION_FISH)
                 .withTags(VALID_TAG_ITALIAN).withIngredients(VALID_INGREDIENT_FISH)
                 .withSteps(VALID_STEP_FISH).build();
     }
+
 
     /**
      * Executes the given {@code command}, confirms that <br>

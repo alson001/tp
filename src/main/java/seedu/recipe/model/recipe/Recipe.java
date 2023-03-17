@@ -22,9 +22,9 @@ public class Recipe {
     // Data fields
     private Optional<RecipePortion> portion = Optional.empty();
     private Optional<RecipeDuration> duration = Optional.empty();
-    private Set<Tag> tags = Set.of();
-    private List<Ingredient> ingredients = List.of();
-    private List<Step> steps = List.of();
+    private Set<Tag> tags = new HashSet<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
+    private List<Step> steps = new ArrayList<>();
 
     /**
      * Only the name field is required. The rest are optional (but recommended)
@@ -37,6 +37,7 @@ public class Recipe {
     public Name getName() {
         return name;
     }
+
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -47,7 +48,7 @@ public class Recipe {
     }
 
     public RecipeDuration getDuration() {
-        duration.orElseThrow(RecipePortionNotPresentException::new);
+        duration.orElseThrow(RecipeDurationNotPresentException::new);
         return duration.get();
     }
 
@@ -87,14 +88,15 @@ public class Recipe {
         }
     }
 
-    public void setIngredients(Ingredient... ingredients) {
-        this.ingredients.addAll(List.of(ingredients));
+    public void setIngredients(Ingredient... ingredientList) {
+        for (Ingredient i : ingredientList) {
+            ingredients.add(i);
+        }
     }
 
     public void setSteps(Step... steps) {
         this.steps.addAll(List.of(steps));
     }
-
 
 
     /**

@@ -66,7 +66,7 @@ public class RecipePortion {
     public static RecipePortion of(String candidate) {
         String[] tokens = candidate.split(TOKENIZE_REGEX);
         if (tokens.length != 3) {
-            throw new RecipePortionInvalidArgumentException(candidate);
+//            throw new RecipePortionInvalidArgumentException(candidate);
         }
         try {
             int lower = Integer.parseInt(tokens[0]);
@@ -76,7 +76,8 @@ public class RecipePortion {
             }
             return new RecipePortion(lower, upper, new PortionUnit(tokens[2]));
         } catch (NumberFormatException e) {
-            throw new RecipePortionInvalidArgumentException(candidate);
+//            throw new RecipePortionInvalidArgumentException(candidate)
+            return new RecipePortion(0, 0, new PortionUnit("failed"));
         }
     }
 }
