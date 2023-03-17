@@ -1,20 +1,13 @@
 package seedu.recipe.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.recipe.model.Model.PREDICATE_SHOW_ALL_RECIPE;
-import static seedu.recipe.testutil.Assert.assertThrows;
+import org.junit.jupiter.api.Test;
+import seedu.recipe.commons.core.GuiSettings;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
-
-import seedu.recipe.commons.core.GuiSettings;
-import seedu.recipe.model.recipe.NameContainsKeywordsPredicate;
-import seedu.recipe.testutil.RecipeBookBuilder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.recipe.testutil.Assert.assertThrows;
 
 public class ModelManagerTest {
 
@@ -75,16 +68,6 @@ public class ModelManagerTest {
         assertThrows(NullPointerException.class, () -> modelManager.hasRecipe(null));
     }
 
-//    @Test
-//    public void hasRecipe_recipeNotInRecipeBook_returnsFalse() {
-//        assertFalse(modelManager.hasRecipe(ALICE));
-//    }
-
-//    @Test
-//    public void hasRecipe_recipeInRecipeBook_returnsTrue() {
-//        modelManager.addRecipe(ALICE);
-//        assertTrue(modelManager.hasRecipe(ALICE));
-//    }
 
     @Test
     public void getFilteredRecipeList_modifyList_throwsUnsupportedOperationException() {
@@ -127,4 +110,5 @@ public class ModelManagerTest {
 //        differentUserPrefs.setRecipeBookFilePath(Paths.get("differentFilePath"));
 //        assertFalse(modelManager.equals(new ModelManager(recipeBook, differentUserPrefs)));
 //    }
+
 }

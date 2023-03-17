@@ -1,23 +1,16 @@
 package seedu.recipe.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.recipe.testutil.Assert.assertThrows;
-import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import org.junit.jupiter.api.Test;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.junit.jupiter.api.Test;
 import seedu.recipe.model.recipe.Recipe;
-import seedu.recipe.model.recipe.exceptions.DuplicateRecipeException;
-import seedu.recipe.testutil.RecipeBuilder;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
 
 public class RecipeBookTest {
 

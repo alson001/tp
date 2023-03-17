@@ -46,7 +46,6 @@ public class AddCommandTest {
 //        Recipe validRecipe = new RecipeBuilder().build();
 //        AddCommand addCommand = new AddCommand(validRecipe);
 //        ModelStub modelStub = new ModelStubWithRecipe(validRecipe);
-
 //        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
     }
 

@@ -3,6 +3,7 @@ package seedu.recipe.storage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static seedu.recipe.testutil.Assert.assertThrows;
+
 import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
 
 import java.io.IOException;
@@ -69,8 +70,6 @@ public class JsonRecipeBookStorageTest {
         assertEquals(original, new RecipeBook(readBack));
 
         // Modify data, overwrite exiting file, and read back
-//        original.addRecipe(HOON);
-//        original.removeRecipe(ALICE);
         jsonRecipeBookStorage.saveRecipeBook(original, filePath);
         readBack = jsonRecipeBookStorage.readRecipeBook(filePath).get();
         assertEquals(original, new RecipeBook(readBack));

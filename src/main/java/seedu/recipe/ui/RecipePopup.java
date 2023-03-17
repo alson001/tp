@@ -1,29 +1,27 @@
 package seedu.recipe.ui;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import seedu.recipe.model.recipe.Ingredient;
 import seedu.recipe.model.recipe.Recipe;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 
-import java.util.Comparator;
-import java.util.Optional;
-
-/**
- * An UI component that displays information of a {@code Recipe}.
- */
-public class RecipeCard extends UiPart<Region> {
+public class RecipePopup extends UiPart<Region>{
 
     private static final String FXML = "RecipeListCard.fxml";
 
-    /**
-     * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
-     * As a consequence, UI elements' variable names cannot be set to such keywords
-     * or an exception will be thrown by JavaFX during runtime.
-     *
-     * @see <a href="https://github.com/se-edu/recipebook-level4/issues/336">The issue on RecipeBook level 4</a>
-     */
     public final Recipe recipe;
 
     @FXML
@@ -48,10 +46,24 @@ public class RecipeCard extends UiPart<Region> {
     @FXML
     private FlowPane steps;
 
-    /**
-     * Creates a {@code RecipeCode} with the given {@code Recipe} and index to display.
-     */
-    public RecipeCard(Recipe recipe, int displayedIndex) {
+    public void display() {
+        Stage window = new Stage();
+        // Ensures users do not exit the view by clicking outside
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle("Recipe Details");
+        window.setMinWidth(500);
+        window.setMinHeight(300);
+
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> window.close());
+        // Create a VBox to hold the RecipeCard
+        VBox vbox = new VBox(getRoot(), closeButton);
+        Scene scene = new Scene(vbox);
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
+    public RecipePopup(Recipe recipe, int displayedIndex) {
         super(FXML);
         this.recipe = recipe;
         id.setText(displayedIndex + ". ");
@@ -83,30 +95,8 @@ public class RecipeCard extends UiPart<Region> {
         //Steps
         recipe.getSteps()
                 .forEach(step -> steps.getChildren().add(new Label(step.toString())));
-
-        // Add a click listener to the cardPane node
-        cardPane.setOnMouseClicked(event -> {
-            RecipePopup popup = new RecipePopup(recipe, displayedIndex);
-            popup.display();
-        });
     }
+}
 
-    @Override
-    public boolean equals(Object other) {
-        // short circuit if same object
-        if (other == this) {
-            return true;
-        }
-
-        // instanceof handles nulls
-        if (!(other instanceof RecipeCard)) {
-            return false;
-        }
-
-        // state checkbyd
-        RecipeCard card = (RecipeCard) other;
-        return id.getText().equals(card.id.getText())
-                && recipe.equals(card.recipe);
-    }
-}   
+//onMouseClicked="handleMouseClick" //for XML
 

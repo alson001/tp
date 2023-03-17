@@ -1,26 +1,17 @@
 package seedu.recipe.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.recipe.logic.commands.CommandTestUtil.showRecipeAtIndex;
-import static seedu.recipe.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.recipe.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
-
 import org.junit.jupiter.api.Test;
-
-import seedu.recipe.commons.core.Messages;
-import seedu.recipe.commons.core.index.Index;
-import seedu.recipe.logic.commands.EditCommand.EditRecipeDescriptor;
-import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.Model;
 import seedu.recipe.model.ModelManager;
+import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.UserPrefs;
 import seedu.recipe.model.recipe.Recipe;
 import seedu.recipe.testutil.EditRecipeDescriptorBuilder;
-import seedu.recipe.testutil.RecipeBuilder;
+
+import static seedu.recipe.logic.commands.CommandTestUtil.*;
+import static seedu.recipe.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.recipe.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for EditCommand.

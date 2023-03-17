@@ -15,4 +15,8 @@ public abstract class Unit {
     public String toString() {
         return this.unit;
     }
+
+    public String getUnit() {
+        return this.unit;
+    }
 }

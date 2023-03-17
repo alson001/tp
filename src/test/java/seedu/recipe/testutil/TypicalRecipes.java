@@ -1,6 +1,5 @@
 package seedu.recipe.testutil;
 
-
 import java.util.*;
 import java.util.function.Supplier;
 
@@ -221,7 +220,6 @@ public class TypicalRecipes {
                 new Step("Assemble together and enjoy!"))).build();
 
     // Manually added - Recipe's details found in {@code CommandTestUtil}
-
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     private TypicalRecipes() {} // prevents instantiation
