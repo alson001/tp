@@ -147,27 +147,27 @@ public class Recipe {
         builder.append(getName());
 
         portion.ifPresent(p -> {
-            builder.append("; Portion: ").append(p);
+            builder.append(";\nPortion: ").append(p);
         });
 
         duration.ifPresent(d -> {
-            builder.append("; Duration: ").append(d);
+            builder.append(";\nDuration: ").append(d);
         });
 
         if (!tags.isEmpty()) {
-            builder.append("; Tags: ");
+            builder.append(";\nTags: ");
             tags.forEach(builder::append);
         }
 
         if (!ingredients.isEmpty()) {
-            builder.append("; Ingredients: ");
-            ingredients.forEach(i -> builder.append(i).append(", "));
+            builder.append(";\nIngredients: ");
+            ingredients.forEach(i -> builder.append(i).append(",\n"));
         }
 
         if (!steps.isEmpty()) {
-            builder.append("; Steps: ");
-            for (int i = 1; i <= steps.size(); i++) {
-                builder.append(String.format("%s. %s, ", i, steps.get(i)));
+            builder.append(";\nSteps: ");
+            for (int i = 0; i < steps.size(); i++) {
+                builder.append(String.format("%s. %s,\n", i + 1, steps.get(i)));
             }
         }
         return builder.toString();

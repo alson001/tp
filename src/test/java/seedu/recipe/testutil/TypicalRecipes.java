@@ -2,6 +2,7 @@ package seedu.recipe.testutil;
 
 
 import java.util.*;
+import java.util.function.Supplier;
 
 import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.recipe.*;
@@ -38,6 +39,37 @@ public class TypicalRecipes {
                 + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
                 + "and pasta is al dente. (Add more pasta water if sauce seems dry.) Transfer "
                 + "pasta to warm bowls and serve."));
+
+    public static final String CACIO_STRING = String.format(
+            "%s;\nPortion: %s;\nDuration: %s;\nTags: %s;\n"
+                    + "Ingredients: %s;\nSteps: %s",
+            CACIO_NAME, CACIO_PORTION, CACIO_DURATION,
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (Tag tag: CACIO_TAGS) {
+                    out.append(tag.toString());
+                }
+                return out.toString();
+            }).get(),
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (Ingredient i: CACIO_INGREDIENTS) {
+                    out.append(i.toString())
+                            .append(",\n");
+                }
+                return out.toString();
+            }).get(),
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (int i = 0; i < CACIO_STEPS.size(); i++) {
+                    out.append(i + 1)
+                            .append(". ")
+                            .append(CACIO_STEPS.get(i).toString())
+                            .append(",\n");
+                }
+                return out.toString();
+            }).get()
+    );
 
     public static final Recipe CACIO_E_PEPE = new RecipeBuilder(
             CACIO_NAME, CACIO_PORTION, CACIO_DURATION, CACIO_TAGS,

@@ -111,7 +111,7 @@ class JsonAdaptedRecipe {
 
     /**
      * Converts this Jackson-friendly adapted recipe object into the model's {@code Recipe} object.
-     * Remember only name field is required, and the rest are optional. 
+     * Remember only name field is required, and the rest are optional.
      *
      * @throws IllegalValueException if there were any data constraints violated in the adapted recipe.
      */

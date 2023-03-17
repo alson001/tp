@@ -10,4 +10,9 @@ public abstract class Unit {
         requireNonNull(unit);
         this.unit = unit;
     }
+
+    @Override
+    public String toString() {
+        return this.unit;
+    }
 }
