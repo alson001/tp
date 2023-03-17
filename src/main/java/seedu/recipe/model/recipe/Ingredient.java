@@ -22,7 +22,7 @@ public class Ingredient {
      */
     public Ingredient(String name) {
         requireNonNull(name);
-//        checkArgument(isValidIngredient(name), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidIngredient(name), MESSAGE_CONSTRAINTS);
         this.name = name;
     }
 

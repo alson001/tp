@@ -2,6 +2,7 @@ package seedu.recipe.model.recipe;
 
 import seedu.recipe.model.recipe.exceptions.RecipePortionInvalidArgumentException;
 import seedu.recipe.model.recipe.unit.PortionUnit;
+import seedu.recipe.model.tag.Tag;
 
 import java.util.Objects;
 
@@ -79,5 +80,14 @@ public class RecipePortion {
 //            throw new RecipePortionInvalidArgumentException(candidate)
             return new RecipePortion(0, 0, new PortionUnit("failed"));
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof RecipePortion // instanceof handles nulls
+                && (lowerRange == (((RecipePortion) other).lowerRange)
+                    && upperRange == (((RecipePortion) other).upperRange)
+                    && portionUnit.equals(((RecipePortion) other).portionUnit))); // state check
     }
 }

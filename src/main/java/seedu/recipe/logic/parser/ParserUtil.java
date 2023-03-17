@@ -135,6 +135,7 @@ public class ParserUtil {
     }
 
     public static Step parseStep(String step) throws ParseException {
+        requireNonNull(step);
         String trimmedStep = step.trim();
         if (!Step.isValidStep(trimmedStep)) {
             throw new ParseException(Step.MESSAGE_CONSTRAINTS);

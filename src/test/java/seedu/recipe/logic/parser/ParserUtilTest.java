@@ -139,8 +139,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseTag_validValueWithoutWhitespace_returnsTag() throws Exception {
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_1));
+        Tag expectedTag = new Tag(VALID_TAG_2);
+        assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_2));
     }
 
     @Test

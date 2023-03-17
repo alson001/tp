@@ -1,5 +1,7 @@
 package seedu.recipe.model.recipe;
 
+import seedu.recipe.model.tag.Tag;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.recipe.commons.util.AppUtil.checkArgument;
 
@@ -35,6 +37,13 @@ public class Step {
      */
     public static boolean isValidStep(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof Step // instanceof handles nulls
+                && description.equals(((Step) other).description)); // state check
     }
 
     @Override
