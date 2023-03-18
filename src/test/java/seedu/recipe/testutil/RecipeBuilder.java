@@ -1,17 +1,12 @@
 package seedu.recipe.testutil;
 
+import seedu.recipe.model.recipe.*;
+import seedu.recipe.model.tag.Tag;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import seedu.recipe.model.recipe.Ingredient;
-import seedu.recipe.model.recipe.Name;
-import seedu.recipe.model.recipe.Recipe;
-import seedu.recipe.model.recipe.RecipeDuration;
-import seedu.recipe.model.recipe.RecipePortion;
-import seedu.recipe.model.recipe.Step;
-import seedu.recipe.model.tag.Tag;
 
 /**
  * A utility class to help with building Recipe objects.

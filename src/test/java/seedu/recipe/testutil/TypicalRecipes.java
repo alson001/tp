@@ -1,7 +1,7 @@
 package seedu.recipe.testutil;
 
-
 import java.util.*;
+import java.util.function.Supplier;
 
 import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.recipe.*;
@@ -27,7 +27,7 @@ public class TypicalRecipes {
     public static final List<Step> CACIO_STEPS = List.of(
         new Step("Bring 3 quarts water to a boil in a 5-qt. pot. "
                 + "Season with salt; add pasta and cook, stirring occasionally, "
-                + "until about 2 minutes before tender. Drain, reserving ¾ cup "
+                + "until about 2 minutes before tender. Drain, reserving 3/4 cup "
                 + "pasta cooking water."),
         new Step("Meanwhile, melt 2 Tbsp. butter in a Dutch oven or other large pot "
                 + "or skillet over medium heat. Add pepper and cook, swirling pan, "
@@ -38,6 +38,37 @@ public class TypicalRecipes {
                 + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
                 + "and pasta is al dente. (Add more pasta water if sauce seems dry.) Transfer "
                 + "pasta to warm bowls and serve."));
+
+    public static final String CACIO_STRING = String.format(
+            "%s;\nPortion: %s;\nDuration: %s;\nTags: %s;\n"
+                    + "Ingredients: %s;\nSteps: %s",
+            CACIO_NAME, CACIO_PORTION, CACIO_DURATION,
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (Tag tag: CACIO_TAGS) {
+                    out.append(tag.toString());
+                }
+                return out.toString();
+            }).get(),
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (Ingredient i: CACIO_INGREDIENTS) {
+                    out.append(i.toString())
+                            .append(",\n");
+                }
+                return out.toString();
+            }).get(),
+            ((Supplier<String>) () -> {
+                StringBuilder out = new StringBuilder();
+                for (int i = 0; i < CACIO_STEPS.size(); i++) {
+                    out.append(i + 1)
+                            .append(". ")
+                            .append(CACIO_STEPS.get(i).toString())
+                            .append(",\n");
+                }
+                return out.toString();
+            }).get()
+    );
 
     public static final Recipe CACIO_E_PEPE = new RecipeBuilder(
             CACIO_NAME, CACIO_PORTION, CACIO_DURATION, CACIO_TAGS,
@@ -189,7 +220,6 @@ public class TypicalRecipes {
                 new Step("Assemble together and enjoy!"))).build();
 
     // Manually added - Recipe's details found in {@code CommandTestUtil}
-
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     private TypicalRecipes() {} // prevents instantiation

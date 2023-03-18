@@ -1,12 +1,17 @@
 package seedu.recipe.model.recipe;
 
-import static seedu.recipe.commons.util.CollectionUtil.requireAllNonNull;
-
-import java.util.*;
-
-import seedu.recipe.model.recipe.exceptions.RecipeDurationNotPresentException;
 import seedu.recipe.model.recipe.exceptions.RecipePortionNotPresentException;
+import seedu.recipe.model.recipe.exceptions.RecipeDurationNotPresentException;
 import seedu.recipe.model.tag.Tag;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+
+import static seedu.recipe.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents a Recipe in the recipe book.
@@ -42,14 +47,26 @@ public class Recipe {
         return ingredients;
     }
 
+    public void setIngredients(Ingredient... ingredients) {
+        this.ingredients.addAll(List.of(ingredients));
+    }
+
     public RecipePortion getPortion() {
         portion.orElseThrow(RecipePortionNotPresentException::new);
         return portion.get();
     }
 
+    public void setPortion(RecipePortion portion) {
+        this.portion = Optional.ofNullable(portion);
+    }
+
     public RecipeDuration getDuration() {
         duration.orElseThrow(RecipeDurationNotPresentException::new);
         return duration.get();
+    }
+
+    public void setDuration(RecipeDuration duration) {
+        this.duration = Optional.ofNullable(duration);
     }
 
     // nullable variants of getPortion and getDuration
@@ -70,28 +87,14 @@ public class Recipe {
         return tags;
     }
 
-    public List<Step> getSteps() {
-        return steps;
-    }
-
-    public void setPortion(RecipePortion portion) {
-        this.portion = Optional.ofNullable(portion);
-    }
-
-    public void setDuration(RecipeDuration duration) {
-        this.duration = Optional.ofNullable(duration);
-    }
-
     public void setTags(Tag... tags) {
-        for (Tag tag: tags) {
+        for (Tag tag : tags) {
             this.tags.add(tag);
         }
     }
 
-    public void setIngredients(Ingredient... ingredientList) {
-        for (Ingredient i : ingredientList) {
-            ingredients.add(i);
-        }
+    public List<Step> getSteps() {
+        return steps;
     }
 
     public void setSteps(Step... steps) {
@@ -147,27 +150,27 @@ public class Recipe {
         builder.append(getName());
 
         portion.ifPresent(p -> {
-            builder.append("; Portion: ").append(p);
+            builder.append(";\nPortion: ").append(p);
         });
 
         duration.ifPresent(d -> {
-            builder.append("; Duration: ").append(d);
+            builder.append(";\nDuration: ").append(d);
         });
 
         if (!tags.isEmpty()) {
-            builder.append("; Tags: ");
+            builder.append(";\nTags: ");
             tags.forEach(builder::append);
         }
 
         if (!ingredients.isEmpty()) {
-            builder.append("; Ingredients: ");
-            ingredients.forEach(i -> builder.append(i).append(", "));
+            builder.append(";\nIngredients: ");
+            ingredients.forEach(i -> builder.append(i).append(",\n"));
         }
 
         if (!steps.isEmpty()) {
-            builder.append("; Steps: ");
-            for (int i = 1; i <= steps.size(); i++) {
-                builder.append(String.format("%s. %s, ", i, steps.get(i)));
+            builder.append(";\nSteps: ");
+            for (int i = 0; i < steps.size(); i++) {
+                builder.append(String.format("%s. %s,\n", i + 1, steps.get(i)));
             }
         }
         return builder.toString();

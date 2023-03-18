@@ -1,7 +1,5 @@
 package seedu.recipe.model.recipe;
 
-import seedu.recipe.model.tag.Tag;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.recipe.commons.util.AppUtil.checkArgument;
 
@@ -16,7 +14,8 @@ public class Step {
 
     /*
      * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * otherwise " " (a blank string) becomes a valid input. The string
+     * should also not end with whitespace.
      */
     public static final String VALIDATION_REGEX = "^(\\S+)(\\s+\\S+)*(?!\n)$";
 

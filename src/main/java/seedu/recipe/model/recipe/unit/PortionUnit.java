@@ -1,8 +1,7 @@
 package seedu.recipe.model.recipe.unit;
 
-import seedu.recipe.model.recipe.Step;
+public class PortionUnit extends Unit {
 
-public class PortionUnit extends Unit{
 
     public PortionUnit(String unit) {
         super(unit);

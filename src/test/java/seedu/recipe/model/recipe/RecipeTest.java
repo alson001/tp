@@ -11,10 +11,7 @@ import seedu.recipe.model.recipe.exceptions.RecipePortionNotPresentException;
 import seedu.recipe.model.tag.Tag;
 import seedu.recipe.testutil.RecipeBuilder;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class RecipeTest {
     // Varying fields
@@ -232,5 +229,16 @@ public class RecipeTest {
 
         // different steps -> returns false
         assertNotEquals(FISH_AND_CHIPS, FISH_AND_CHIPS_DIFF_STEPS);
+    }
+
+    @Test
+    public void testHashCode() {
+        int hash = Objects.hash(CACIO_NAME, CACIO_PORTION, CACIO_DURATION, CACIO_TAGS, CACIO_INGREDIENTS, CACIO_STEPS);
+        assertEquals(hash, CACIO_E_PEPE.hashCode());
+    }
+
+    @Test
+    public void testString() {
+        assertEquals(CACIO_STRING, CACIO_E_PEPE.toString());
     }
 }
