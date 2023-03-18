@@ -1,10 +1,8 @@
 package seedu.recipe.model.recipe;
 
 import static org.junit.jupiter.api.Assertions.*;
-<<<<<<< HEAD
-import static seedu.recipe.logic.commands.CommandTestUtil.*;
-=======
->>>>>>> upstream/mvp
+import static seedu.recipe.logic.commands.CommandTestUtil.VALID_NAME_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.VALID_NAME_FISH;
 import static seedu.recipe.testutil.Assert.assertThrows;
 import static seedu.recipe.testutil.TypicalRecipes.CACIO_NAME;
 
@@ -36,15 +34,14 @@ public class NameTest {
         assertThrows(NullPointerException.class, () -> Name.isValidName(null));
 
         // invalid name
-<<<<<<< HEAD
         assertFalse(Name.isValidName("")); // empty string
         assertFalse(Name.isValidName(" ")); // spaces
         assertFalse(Name.isValidName("^")); // only non-alphanumeric characters
         assertFalse(Name.isValidName("lasagna*")); // contains non-alphanumeric characters
+        assertFalse(Name.isValidName("12345")); // numbers only
 
         // valid name
         assertTrue(Name.isValidName("curry chicken")); // alphabets only
-        assertTrue(Name.isValidName("12345")); // numbers only
         assertTrue(Name.isValidName("Curry Chicken")); // with capital letters
         assertTrue(Name.isValidName("3D Dog Cake")); // alphanumeric characters
         assertTrue(Name.isValidName("Chargrilled Mackerel With Sweet And Sour Beetroot")); // long names;
@@ -64,9 +61,6 @@ public class NameTest {
 
     @Test
     public void testString() {
-        Name chicken = new Name(VALID_NAME_CHICKEN);
-        assertEquals(VALID_NAME_CHICKEN, chicken.toString());
-=======
         assertFalse(Name.isValidName(EMPTY));
         assertFalse(Name.isValidName(WHITESPACE));
         assertFalse(Name.isValidName(NON_VALID_CHAR_SOLO));
@@ -91,6 +85,8 @@ public class NameTest {
 
     @Test
     public void test_toString() {
+        Name chicken = new Name(VALID_NAME_CHICKEN);
+        assertEquals(VALID_NAME_CHICKEN, chicken.toString());
         assertEquals(LONG_TOKEN, new Name(LONG_TOKEN).toString());
     }
 
@@ -117,6 +113,5 @@ public class NameTest {
     public void test_hashCode() {
         int expected = LONG_TOKEN.hashCode();
         assertEquals(expected, new Name(LONG_TOKEN).hashCode());
->>>>>>> upstream/mvp
     }
 }

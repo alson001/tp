@@ -1,6 +1,5 @@
 package seedu.recipe.model.recipe;
 
-<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -13,14 +12,7 @@ import static seedu.recipe.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 public class StepTest {
-=======
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static seedu.recipe.testutil.Assert.assertThrows;
-
-
-public class StepTest {
     private static final String EMPTY = "";
     private static final String WHITESPACE = " ";
     private static final String ONE_NUMBER = "123";
@@ -41,37 +33,26 @@ public class StepTest {
     private static final String MULTI_TOKEN_PAREN = "You may wish to cover the tray (to prevent moisture from escaping)";
     private static final String MULTI_TOKEN_DECIMAL_RANGE = "Leave in the oven for 3-3.5 hours.";
 
->>>>>>> upstream/mvp
     @Test
     public void constructor_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new Step(null));
     }
 
-    @Test
-<<<<<<< HEAD
-    public void constructor_invalidStep_throwsIllegalArgumentException() {
-        String invalidStep = "";
-        assertThrows(IllegalArgumentException.class, () -> new Step(invalidStep));
-    }
 
     @Test
-=======
->>>>>>> upstream/mvp
     public void isValidStep() {
         // null step
         assertThrows(NullPointerException.class, () -> Step.isValidStep(null));
 
-<<<<<<< HEAD
         // invalid step
         assertFalse(Step.isValidStep("")); // empty string
         assertFalse(Step.isValidStep(" ")); // spaces only
+        assertFalse(Step.isValidStep("mix")); // non-numeric one word
+        assertFalse(Step.isValidStep("^")); // only non-alphanumeric characters
+        assertFalse(Step.isValidStep("543")); // only numbers
 
 
         // valid step
-        assertTrue(Step.isValidStep("^")); // only non-alphanumeric characters
-        assertTrue(Step.isValidStep("543")); // only numbers
-        assertTrue(Step.isValidStep("mix")); // non-numeric
-        assertTrue(Step.isValidStep("Mix")); // Caps
         assertTrue(Step.isValidStep("Add the curry powder, cumin, coriander and"
                 + " cayenne pepper if using")); // non-alphanumeric characters
         assertTrue(Step.isValidStep("Add the curry powder, cumin, coriander, turmeric, "
@@ -91,7 +72,7 @@ public class StepTest {
     public void testString() {
         Step chicken = new Step(VALID_STEP_CHICKEN);
         assertEquals(VALID_STEP_CHICKEN, chicken.toString());
-=======
+
         //invalid
         assertFalse(Step.isValidStep(EMPTY));
         assertFalse(Step.isValidStep(WHITESPACE));
@@ -135,7 +116,7 @@ public class StepTest {
         assertEquals(test, test);
 
         //Same name
-        assertNotEquals(test, new Step(MULTI_TOKEN_PAREN));
+        assertEquals(test, new Step(MULTI_TOKEN_PAREN));
 
         //Diff name
         assertNotEquals(new Step(MULTI_TOKEN_PAREN), new Step(MULTI_TOKEN_DECIMAL_RANGE));
@@ -150,6 +131,5 @@ public class StepTest {
     @Test
     public void test_hashCode() {
         assertEquals(MULTI_TOKEN_PAREN.hashCode(), new Step(MULTI_TOKEN_PAREN).hashCode());
->>>>>>> upstream/mvp
     }
 }

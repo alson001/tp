@@ -1,18 +1,11 @@
 package seedu.recipe.model.recipe;
 
-<<<<<<< HEAD
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_CHICKEN;
 import static seedu.recipe.logic.commands.CommandTestUtil.VALID_INGREDIENT_FISH;
-=======
-import static org.junit.jupiter.api.Assertions.*;
->>>>>>> upstream/mvp
 import static seedu.recipe.testutil.Assert.assertThrows;
-
-import org.junit.jupiter.api.Test;
 
 public class IngredientTest {
     private static final String VALID_INTEGER = "1 watermelon";
@@ -30,7 +23,6 @@ public class IngredientTest {
     }
 
     @Test
-<<<<<<< HEAD
     public void constructor_invalidIngredient_throwsIllegalArgumentException() {
         String invalidIngredient = "";
         assertThrows(IllegalArgumentException.class, () -> new Ingredient(invalidIngredient));
@@ -42,40 +34,35 @@ public class IngredientTest {
         assertThrows(NullPointerException.class, () -> Ingredient.isValidIngredient(null));
 
         // invalid ingredient
-        assertFalse(Ingredient.isValidIngredient("")); // empty string
-        assertFalse(Ingredient.isValidIngredient(" ")); // spaces only
+        Assertions.assertFalse(Ingredient.isValidIngredient("")); // empty string
+        Assertions.assertFalse(Ingredient.isValidIngredient(" ")); // spaces only
+        Assertions.assertFalse(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
 
         // valid ingredient
-        assertTrue(Ingredient.isValidIngredient("salt")); // non-numeric
-        assertTrue(Ingredient.isValidIngredient("fish oil")); // spaces within ingredients
-        assertTrue(Ingredient.isValidIngredient("Salt")); // Caps
-        assertTrue(Ingredient.isValidIngredient("93121534")); // numbers
-        assertTrue(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
-        assertTrue(Ingredient.isValidIngredient("1 container (15 ounces) ricotta cheese"));
+        Assertions.assertTrue(Ingredient.isValidIngredient("salt")); // non-numeric
+        Assertions.assertTrue(Ingredient.isValidIngredient("fish oil")); // spaces within ingredients
+        Assertions.assertTrue(Ingredient.isValidIngredient("Salt")); // Caps
+        Assertions.assertTrue(Ingredient.isValidIngredient("1 container (15 ounces) ricotta cheese"));
     }
 
     @Test
     public void equals() {
         Ingredient fish = new Ingredient(VALID_INGREDIENT_FISH);
         Ingredient chicken = new Ingredient(VALID_INGREDIENT_CHICKEN);
-        assertEquals(fish, new Ingredient(VALID_INGREDIENT_FISH));
-        assertNotEquals(fish, chicken);
+        Assertions.assertEquals(fish, new Ingredient(VALID_INGREDIENT_FISH));
+        Assertions.assertNotEquals(fish, chicken);
     }
 
     @Test
-    public void testString() {
-        Ingredient chicken = new Ingredient(VALID_INGREDIENT_CHICKEN);
-        assertEquals(VALID_INGREDIENT_CHICKEN, chicken.toString());
-=======
     public void ingredient_name_regex() {
-        assertTrue(Ingredient.isValidIngredient(VALID_INTEGER));
-        assertTrue(Ingredient.isValidIngredient(VALID_DECIMAL));
-        assertTrue(Ingredient.isValidIngredient(VALID_INTEGER_CONCAT_UNIT));
-        assertTrue(Ingredient.isValidIngredient(VALID_DECIMAL_CONCAT_UNIT));
-        assertTrue(Ingredient.isValidIngredient(VALID_ALPHA));
-        assertFalse(Ingredient.isValidIngredient(TRAILING_WHITESPACE));
-        assertFalse(Ingredient.isValidIngredient(WHITESPACE));
-        assertFalse(Ingredient.isValidIngredient(LEADING_WHITESPACE));
+        Assertions.assertTrue(Ingredient.isValidIngredient(VALID_INTEGER));
+        Assertions.assertTrue(Ingredient.isValidIngredient(VALID_DECIMAL));
+        Assertions.assertTrue(Ingredient.isValidIngredient(VALID_INTEGER_CONCAT_UNIT));
+        Assertions.assertTrue(Ingredient.isValidIngredient(VALID_DECIMAL_CONCAT_UNIT));
+        Assertions.assertTrue(Ingredient.isValidIngredient(VALID_ALPHA));
+        Assertions.assertFalse(Ingredient.isValidIngredient(TRAILING_WHITESPACE));
+        Assertions.assertFalse(Ingredient.isValidIngredient(WHITESPACE));
+        Assertions.assertFalse(Ingredient.isValidIngredient(LEADING_WHITESPACE));
     }
 
     @Test
@@ -87,32 +74,33 @@ public class IngredientTest {
 
     @Test
     public void test_toString() {
-        assertEquals(VALID_INTEGER_CONCAT_UNIT, new Ingredient(VALID_INTEGER_CONCAT_UNIT).toString());
+        Ingredient chicken = new Ingredient(VALID_INGREDIENT_CHICKEN);
+        Assertions.assertEquals(VALID_INGREDIENT_CHICKEN, chicken.toString());
+        Assertions.assertEquals(VALID_INTEGER_CONCAT_UNIT, new Ingredient(VALID_INTEGER_CONCAT_UNIT).toString());
     }
 
     @Test
     public void test_equals() {
         //Referential Equality
         Ingredient test = new Ingredient(VALID_DECIMAL_CONCAT_UNIT);
-        assertEquals(test, test);
+        Assertions.assertEquals(test, test);
 
         //Same name
-        assertEquals(new Ingredient(VALID_INTEGER_CONCAT_UNIT), new Ingredient(VALID_INTEGER_CONCAT_UNIT));
+        Assertions.assertEquals(new Ingredient(VALID_INTEGER_CONCAT_UNIT), new Ingredient(VALID_INTEGER_CONCAT_UNIT));
 
         //Diff name
-        assertNotEquals(new Ingredient(VALID_INTEGER_CONCAT_UNIT), new Ingredient(VALID_DECIMAL_CONCAT_UNIT));
+        Assertions.assertNotEquals(new Ingredient(VALID_INTEGER_CONCAT_UNIT), new Ingredient(VALID_DECIMAL_CONCAT_UNIT));
 
         //Diff type
-        assertNotEquals(new Ingredient(VALID_DECIMAL), "hello");
+        Assertions.assertNotEquals(new Ingredient(VALID_DECIMAL), "hello");
 
         //null
-        assertNotEquals(new Ingredient(VALID_DECIMAL), null);
+        Assertions.assertNotEquals(new Ingredient(VALID_DECIMAL), null);
     }
 
     @Test
     public void test_hashCode() {
         int expected = VALID_DECIMAL_CONCAT_UNIT.hashCode();
-        assertEquals(expected, new Ingredient(VALID_DECIMAL_CONCAT_UNIT).hashCode());
->>>>>>> upstream/mvp
+        Assertions.assertEquals(expected, new Ingredient(VALID_DECIMAL_CONCAT_UNIT).hashCode());
     }
 }

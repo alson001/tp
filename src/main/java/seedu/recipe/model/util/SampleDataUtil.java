@@ -26,20 +26,6 @@ import seedu.recipe.model.tag.Tag;
  */
 public class SampleDataUtil {
     public static Recipe[] getSampleRecipes() {
-<<<<<<< HEAD
-        Recipe cacioEPepePasta = new Recipe(new Name("Cacio E Pepe Pasta"));
-        cacioEPepePasta.setDuration(RecipeDuration.of("15 minutes"));
-        cacioEPepePasta.setPortion(RecipePortion.of("1 - 3 person"));
-//
-        cacioEPepePasta.setIngredients(
-                new Ingredient("2 whole eggs"),
-                new Ingredient("100g spaghetti noodles")
-        );
-        cacioEPepePasta.setSteps(
-                new Step("Crack the egg and separate the yolks and whites"),
-                new Step("Raise a pot of water to the boil and add the spaghetti")
-        );
-=======
         Name CACIO_NAME = new Name("Cacio e Pepe");
         RecipePortion CACIO_PORTION = RecipePortion.of("1 - 2 servings");
         RecipeDuration CACIO_DURATION = RecipeDuration.of("15 minutes");
@@ -72,7 +58,6 @@ public class SampleDataUtil {
         cacioEPepePasta.setTags(CACIO_TAGS.toArray(Tag[]::new));
         cacioEPepePasta.setIngredients(CACIO_INGREDIENTS.toArray(Ingredient[]::new));
         cacioEPepePasta.setSteps(CACIO_STEPS.toArray(Step[]::new));
->>>>>>> upstream/mvp
 
         return new Recipe[] {
                 cacioEPepePasta
