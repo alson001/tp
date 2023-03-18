@@ -33,7 +33,11 @@ public class TypicalRecipes {
                 + "or skillet over medium heat. Add pepper and cook, swirling pan, "
                 + "until toasted, about 1 minute."),
         new Step("Add 0.5 cup reserved pasta water to skillet and bring to a simmer. "
+<<<<<<< HEAD
                 + "Add pasta and remaining butter. Reduce heat to low and add Grana Padano,"
+=======
+                + "Add pasta and remaining butter. Reduce heat to low and add Grana Padano, "
+>>>>>>> upstream/mvp
                 + "stirring and tossing with tongs until melted. Remove pan from heat; add "
                 + "Pecorino, stirring and tossing until cheese melts, sauce coats the pasta, "
                 + "and pasta is al dente. (Add more pasta water if sauce seems dry.) Transfer "
@@ -80,6 +84,7 @@ public class TypicalRecipes {
             RecipePortion.of("2 - 3 servings"),
             RecipeDuration.of("35 minutes"),
             Set.of(new Tag("American"), new Tag("Breakfast")),
+<<<<<<< HEAD
             List.of(new Ingredient("200 g self-raising flour"),
                     new Ingredient("1 tsp baking powder"),
                     new Ingredient("1 egg"),
@@ -102,6 +107,31 @@ public class TypicalRecipes {
                             + "each pancake, then turn and cook another 2-3 minutes until golden."),
                     new Step("Cover with kitchen paper to keep warm while you use up the rest of the batter."),
                     new Step("Serve with golden or maple syrup and the rest of the blueberries.")
+=======
+            List.of(
+                new Ingredient("200 g self-raising flour"),
+                new Ingredient("1 tsp baking powder"),
+                new Ingredient("1 egg"),
+                new Ingredient("1 knob butter"),
+                new Ingredient("150 g pack blueberry"),
+                new Ingredient("golden or maple syrup"),
+                new Ingredient("sunflower oil or a little butter")),
+            List.of(
+                new Step("Mix together 200 g self-raising flour, 1 tsp baking powder and a "
+                        + "pinch of salt in a large bowl."),
+                new Step("Beat 1 egg with 300ml milk, make a well in the centre of the dry ingredients and whisk "
+                        + "in the milk to make a thick smooth batter."),
+                new Step("Beat in a knob of melted butter, and gently stir in half of the 150g pack of "
+                        + "blueberries."),
+                new Step("Heat a teaspoon of sunflower oil or small knob of butter in a large non-stick frying"
+                        + "pan."),
+                new Step("Drop a large tablespoonful of the batter per pancake into the pan to make pancakes about"
+                        + " 7.5cm across. Make three or four pancakes at a time."),
+                new Step("Cook for about 3 minutes over a medium heat until small bubbles appear on the surface of"
+                        + "each pancake, then turn and cook another 2-3 minutes until golden."),
+                new Step("Cover with kitchen paper to keep warm while you use up the rest of the batter."),
+                new Step("Serve with golden or maple syrup and the rest of the blueberries.")
+>>>>>>> upstream/mvp
             )).build();
     public static final Recipe MASALA_DOSA = new RecipeBuilder(
             new Name("Classic Masala Dosa"),
@@ -127,9 +157,16 @@ public class TypicalRecipes {
                 new Ingredient("2 small green chiles, finely chopped"),
                 new Ingredient("1.5 pounds yellow-fleshed potatoes, such as Yukon Gold, boiled, peeled and cubed"),
                 new Ingredient("0.5 cup roughly chopped cilantro, leaves and tender stems")),
+<<<<<<< HEAD
             List.of(new Step("Make the dosa batter: Put rice in a bowl, rinse well and cover with "
                             + "4 cups cold water. Put urad dal and fenugreek seeds in a small bowl, rinse "
                             + "well and add cold water to cover. Leave both to soak for 4 to 6 hours."),
+=======
+            List.of(
+                new Step("Make the dosa batter: Put rice in a bowl, rinse well and cover with "
+                        + "4 cups cold water. Put urad dal and fenugreek seeds in a small bowl, rinse "
+                        + "well and add cold water to cover. Leave both to soak for 4 to 6 hours."),
+>>>>>>> upstream/mvp
                 new Step("Drain rice and dal-fenugreek mixture in separate colanders. Put rice "
                         + "in a food processor, blender or wet-dry grinder. Add 1 cup cold water and "
                         + "grind to a smooth paste. It will take about 10 minutes, and it may be necessary "
@@ -151,7 +188,11 @@ public class TypicalRecipes {
                         + "temperature. "
                         + "(Potato filling may be prepared up to a day in advance.)"),
                 new Step("To make dosas, set a griddle or cast-iron skillet over medium heat. "
+<<<<<<< HEAD
                         + "Brush with about 1 teaspoon vegetable oil. Ladle ¼ cup batter in the center "
+=======
+                        + "Brush with about 1 teaspoon vegetable oil. Ladle 1/4 cup batter in the center "
+>>>>>>> upstream/mvp
                         + "of griddle. Using bottom of ladle, quickly spread batter outward in a circular motion "
                         + "to a diameter of about 7 inches. Drizzle 0.5 teaspoon oil over the top. Leave dosa batter"
                         + " to brown "
@@ -173,9 +214,16 @@ public class TypicalRecipes {
                 new Ingredient("a few drops of balsamic vinegar"),
                 new Ingredient("butter")
             ),
+<<<<<<< HEAD
             List.of(new Step("Butter the bread. Put a wedge of camembert or brie on the unbuttered side of one slice of"
                             + " bread. Top with a spoonful of cranberry sauce. Drizzle with a few drops of balsamic"
                             + " vinegar, if you have some."),
+=======
+            List.of(
+                new Step("Butter the bread. Put a wedge of camembert or brie on the unbuttered side of one slice of"
+                        + " bread. Top with a spoonful of cranberry sauce. Drizzle with a few drops of balsamic"
+                        + " vinegar, if you have some."),
+>>>>>>> upstream/mvp
                 new Step("Put the second slice of bread on top, buttered side out. Fry in a hot non-stick pan,"
                         + " pressing down with a fish slice, for a minute or two on each side, until golden brown"
                         + " and melting. Cut in half and eat straightaway."))).build();
@@ -183,7 +231,11 @@ public class TypicalRecipes {
     public static final Recipe FISH_AND_CHIPS = new RecipeBuilder(
             new Name("Fish and Chips"),
             RecipePortion.of("1 - 2 servings"),
+<<<<<<< HEAD
             RecipeDuration.of("10 minute"),
+=======
+            RecipeDuration.of("10 minutes"),
+>>>>>>> upstream/mvp
             Set.of(new Tag("English"), new Tag("Comfort food")),
             List.of(new Ingredient("120 Grams Self Rising Flour + additional to coat"),
                 new Ingredient("175 Grams White Fleshed Fish (such as Cod)"),
@@ -192,16 +244,28 @@ public class TypicalRecipes {
                 new Ingredient("1 Large Waxy Potato, Peeled"),
                 new Ingredient("Sunflower Oil"),
                 new Ingredient("Salt"),
+<<<<<<< HEAD
                 new Ingredient("1 Teaspoon Curry Powder (used twice) "),
                 new Ingredient("1 Teaspoon Baking Powder"),
                 new Ingredient("1 Tablespoon of Gherkins, chopped "),
+=======
+                new Ingredient("1 Teaspoon Curry Powder (used twice)"),
+                new Ingredient("1 Teaspoon Baking Powder"),
+                new Ingredient("1 Tablespoon of Gherkins, chopped"),
+>>>>>>> upstream/mvp
                 new Ingredient("50 Grams Creme Fraiche"),
                 new Ingredient("200 Grams Mayonnaise"),
                 new Ingredient("0.75 Shallot Diced"),
                 new Ingredient("Lemon Juice (about 1 Teaspoon)"),
                 new Ingredient("Hot Sauce (Optional)")),
+<<<<<<< HEAD
             List.of(new Step("Get oil in pan medium-high heat for frying before assembling ingredients. Do not need"
                             + " a deep pan or pot, a large pan will do"),
+=======
+            List.of(
+                new Step("Get oil in pan medium-high heat for frying before assembling ingredients. Do not need"
+                        + " a deep pan or pot, a large pan will do"),
+>>>>>>> upstream/mvp
                 new Step("In a bowl whisk together flour, baking soda, curry powder and beer. Then whisk egg whites"
                         + " till there are stiff peaks and fold into batter (if too heavy add some water)"),
                 new Step("Add teaspoon of curry powder to dredging flour for more seasoning (optional)"),
@@ -209,7 +273,11 @@ public class TypicalRecipes {
                         + " mixture. Make sure fish is fully battered and ad to oil"),
                 new Step("Once fish is in, baste the fish with oil. Let first side cook until golden brown and flip."
                         + " Basting fish with oil on other side. Take pan on and off oil so that the oil does not get"
+<<<<<<< HEAD
                         + " too hot. Fish should be in oil 3-3 0.5 minutes. Once finished put on plate with paper towel"
+=======
+                        + " too hot. Fish should be in oil 3-3.5 minutes. Once finished put on plate with paper towel"
+>>>>>>> upstream/mvp
                         + " and put in warm oven"),
                 new Step("Chop potato into square, then chop into tall skinny fries (the skinnier the fry the quicker"
                         + " they will cook). Then roll in paper towel to dry any excess moisture. Add new oil to pain"

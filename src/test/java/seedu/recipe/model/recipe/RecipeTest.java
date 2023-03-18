@@ -1,8 +1,29 @@
 package seedu.recipe.model.recipe;
 
+<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.*;
 import static seedu.recipe.testutil.Assert.assertThrows;
 import static seedu.recipe.testutil.TypicalRecipes.*;
+=======
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static seedu.recipe.testutil.Assert.assertThrows;
+import static seedu.recipe.testutil.TypicalRecipes.BLUEBERRY_PANCAKES;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_DURATION;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_E_PEPE;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_INGREDIENTS;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_NAME;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_PORTION;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_STEPS;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_STRING;
+import static seedu.recipe.testutil.TypicalRecipes.CACIO_TAGS;
+import static seedu.recipe.testutil.TypicalRecipes.FISH_AND_CHIPS;
+import static seedu.recipe.testutil.TypicalRecipes.GRILLED_CHEESE;
+import static seedu.recipe.testutil.TypicalRecipes.MASALA_DOSA;
+>>>>>>> upstream/mvp
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +32,15 @@ import seedu.recipe.model.recipe.exceptions.RecipePortionNotPresentException;
 import seedu.recipe.model.tag.Tag;
 import seedu.recipe.testutil.RecipeBuilder;
 
+<<<<<<< HEAD
 import java.util.*;
+=======
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+>>>>>>> upstream/mvp
 
 public class RecipeTest {
     // Varying fields
@@ -87,6 +116,7 @@ public class RecipeTest {
         assertEquals(CACIO_PORTION, CACIO_E_PEPE.getPortionNullable());
         assertEquals(CACIO_PORTION, CACIO_E_PEPE.getPortion());
     }
+<<<<<<< HEAD
 
     @Test
     public void setCacioPortion() {
@@ -115,6 +145,42 @@ public class RecipeTest {
         test.setDuration(testDuration);
         assertEquals(testDuration, test.getDuration());
     }
+=======
+>>>>>>> upstream/mvp
+
+    //Tag logic
+    @Test
+<<<<<<< HEAD
+    public void getTags() {
+        assertEquals(CACIO_TAGS, CACIO_E_PEPE.getTags());
+=======
+    public void setCacioPortion() {
+        Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
+        RecipePortion testPortion = RecipePortion.of("8 - 10 servings");
+        test.setPortion(testPortion);
+        assertEquals(testPortion, test.getPortion());
+>>>>>>> upstream/mvp
+    }
+
+    //Duration logic
+    @Test
+    public void getNullDuration_throwsRecipeDurationNotPresentException() {
+        assertThrows(RecipeDurationNotPresentException.class, CACIO_NAME_ONLY::getDuration);
+    }
+
+    @Test
+    public void getDurationNonNull() {
+        assertEquals(CACIO_DURATION, CACIO_E_PEPE.getDurationNullable());
+        assertEquals(CACIO_DURATION, CACIO_E_PEPE.getDuration());
+    }
+
+    @Test
+    public void setCacioDuration() {
+        Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
+        RecipeDuration testDuration = RecipeDuration.of("20 hours");
+        test.setDuration(testDuration);
+        assertEquals(testDuration, test.getDuration());
+    }
 
     //Tag logic
     @Test
@@ -122,6 +188,56 @@ public class RecipeTest {
         assertEquals(CACIO_TAGS, CACIO_E_PEPE.getTags());
     }
 
+    @Test
+    public void setTags() {
+        Set<Tag> newTagSet = new HashSet<>(CACIO_TAGS);
+        Tag[] tagsToAdd = new Tag[]{
+                new Tag("Tag one"),
+                new Tag("Tag two")
+        };
+        Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
+        test.setTags(tagsToAdd);
+        newTagSet.addAll(Set.of(tagsToAdd));
+        assertEquals(newTagSet, test.getTags());
+    }
+
+    //Ingredient logic
+    @Test
+    public void getIngredients() {
+        assertEquals(CACIO_INGREDIENTS, CACIO_E_PEPE.getIngredients());
+    }
+
+    @Test
+    public void setIngredients() {
+        List<Ingredient> newIngredientList = new ArrayList<>(CACIO_INGREDIENTS);
+        Ingredient[] ingredientsToAdd = new Ingredient[]{
+                new Ingredient("Ingredient one"),
+                new Ingredient("Ingredient two")
+        };
+        Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
+        test.setIngredients(ingredientsToAdd);
+        newIngredientList.addAll(List.of(ingredientsToAdd));
+        assertEquals(newIngredientList, test.getIngredients());
+    }
+
+    //Ingredient logic
+    @Test
+    public void getSteps() {
+        assertEquals(CACIO_STEPS, CACIO_E_PEPE.getSteps());
+    }
+
+    @Test
+    public void setSteps() {
+        Step[] newSteps = new Step[]{
+                new Step("Step one"),
+                new Step("Step two")
+        };
+        Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
+        test.setSteps(newSteps);
+        assertEquals(List.of(newSteps), test.getSteps());
+    }
+
+    //Equality
     @Test
     public void setTags() {
         Set<Tag> newTagSet = new HashSet<>(CACIO_TAGS);
@@ -214,10 +330,17 @@ public class RecipeTest {
 
         // different name -> returns false
         assertNotEquals(MASALA_DOSA, DOSA_COPY_DIFF_NAME);
+<<<<<<< HEAD
 
         // different portion -> returns false
         assertNotEquals(FISH_AND_CHIPS, FISH_AND_CHIPS_DIFF_PORTION);
 
+=======
+
+        // different portion -> returns false
+        assertNotEquals(FISH_AND_CHIPS, FISH_AND_CHIPS_DIFF_PORTION);
+
+>>>>>>> upstream/mvp
         // different duration -> returns false
         assertNotEquals(FISH_AND_CHIPS, FISH_AND_CHIPS_DIFF_DURATION);
 

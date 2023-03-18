@@ -2,12 +2,15 @@ package seedu.recipe.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+<<<<<<< HEAD
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_PORTION;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_DURATION;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_INGREDIENT;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_STEP;
+=======
+>>>>>>> upstream/mvp
 import static seedu.recipe.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ import seedu.recipe.testutil.EditRecipeDescriptorBuilder;
  */
 public class CommandTestUtil {
 
+<<<<<<< HEAD
     public static final String VALID_NAME_CHICKEN = "Grilled Chicken";
     public static final String VALID_NAME_FISH = "Grilled Fish";
     public static final String VALID_PORTION_CHICKEN = "1 - 2 portions";
@@ -77,6 +81,20 @@ public class CommandTestUtil {
                 .withTags(VALID_TAG_ITALIAN).withIngredients(VALID_INGREDIENT_FISH)
                 .withSteps(VALID_STEP_FISH).build();
     }
+=======
+//    public static final EditCommand.EditRecipeDescriptor DESC_AMY;
+//    public static final EditCommand.EditRecipeDescriptor DESC_BOB;
+//
+//    static {
+//        DESC_AMY = new EditRecipeDescriptorBuilder().withName(VALID_NAME_AMY)
+//                .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
+//                .withTags(VALID_TAG_FRIEND).build();
+//        DESC_BOB = new EditRecipeDescriptorBuilder().withName(VALID_NAME_BOB)
+//                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+//                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+//    }
+
+>>>>>>> upstream/mvp
 
 
 
