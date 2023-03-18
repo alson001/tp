@@ -42,8 +42,7 @@ public class ParserUtilTest {
             "Cook the lasagna noodles according to the package instructions. Drain and set aside.";
     private static final String VALID_STEP_2 =
             "Add the crushed tomatoes, tomato paste, basil, oregano, salt, and black pepper to the skillet. "
-                    + "Stir to combine and simmer for 10-15 minutes.";
-
+            + "Stir to combine and simmer for 10-15 minutes.";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -122,22 +121,6 @@ public class ParserUtilTest {
     public void parseDuration_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseDuration(INVALID_DURATION));
     }
-
-
-    //Duration has no equals method
-//    @Test
-//    public void parseDuration_validValueWithoutWhitespace_returnsDuration() throws Exception {
-//        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
-//        assertEquals(expectedDuration, ParserUtil.parseDuration(VALID_DURATION));
-//    }
-
-    //Duration has no equals method
-//    @Test
-//    public void parseDuration_validValueWithWhitespace_returnsTrimmedDuration() throws Exception {
-//        String durationWithWhitespace = WHITESPACE + VALID_DURATION + WHITESPACE;
-//        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
-//        assertEquals(expectedDuration, ParserUtil.parseDuration(durationWithWhitespace));
-//    }
 
     @Test
     public void parseTag_null_throwsNullPointerException() {
@@ -251,13 +234,6 @@ public class ParserUtilTest {
         assertEquals(expectedStep, ParserUtil.parseStep(VALID_STEP_1));
     }
 
-    //Step dont allow whitespace before and after
-//    @Test
-//    public void parseStep_validValueWithWhitespace_returnsTrimmedStep() throws Exception {
-//        String stepWithWhitespace = WHITESPACE + VALID_STEP_1 + WHITESPACE;
-//        Step expectedStep = new Step(VALID_STEP_1);
-//        assertEquals(expectedStep, ParserUtil.parseStep(stepWithWhitespace));
-//    }
 
     @Test
     public void parseSteps_null_throwsNullPointerException() {
@@ -285,6 +261,4 @@ public class ParserUtilTest {
 
         assertEquals(expectedStepList, actualStepList);
     }
-
-
 }

@@ -16,11 +16,10 @@ import java.util.List;
 
 import seedu.recipe.commons.core.index.Index;
 import seedu.recipe.logic.commands.exceptions.CommandException;
-import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.Model;
+import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.recipe.NameContainsKeywordsPredicate;
 import seedu.recipe.model.recipe.Recipe;
-import seedu.recipe.testutil.EditRecipeDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -76,7 +75,6 @@ public class CommandTestUtil {
                 .withTags(VALID_TAG_ITALIAN).withIngredients(VALID_INGREDIENT_FISH)
                 .withSteps(VALID_STEP_FISH).build();
     }
-
 
     /**
      * Executes the given {@code command}, confirms that <br>
