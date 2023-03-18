@@ -1,8 +1,10 @@
 package seedu.recipe.logic.parser;
 
 import static seedu.recipe.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.recipe.logic.commands.CommandTestUtil.*;
 import static seedu.recipe.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.recipe.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.recipe.testutil.TypicalRecipes.CHICKEN;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,25 +18,29 @@ import seedu.recipe.testutil.RecipeBuilder;
 public class AddCommandParserTest {
     private AddCommandParser parser = new AddCommandParser();
 
-//    @Test
-//    public void parse_allFieldsPresent_success() {
-//        Recipe expectedRecipe = new RecipeBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
-//
-//        // whitespace only preamble
-//        assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-//                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedRecipe));
-//
-//        // multiple names - last name accepted
-//        assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-//                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedRecipe));
-//
-//        // multiple phones - last phone accepted
-//        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
-//                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedRecipe));
-//
-//        // multiple emails - last email accepted
-//        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB
-//                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedRecipe));
+    @Test
+    public void parse_allFieldsPresent_success() {
+        Recipe expectedRecipe = new RecipeBuilder(CHICKEN).build();
+
+        // whitespace only preamble
+        assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_CHICKEN + PORTION_DESC_CHICKEN
+                + DURATION_DESC_CHICKEN + TAG_DESC_CHINESE + INGREDIENT_DESC_CHICKEN + STEP_DESC_CHICKEN,
+                new AddCommand(expectedRecipe));
+
+        // multiple names - last name accepted
+        assertParseSuccess(parser, NAME_DESC_FISH + NAME_DESC_CHICKEN + PORTION_DESC_CHICKEN
+                        + DURATION_DESC_CHICKEN + TAG_DESC_CHINESE + INGREDIENT_DESC_CHICKEN + STEP_DESC_CHICKEN,
+                new AddCommand(expectedRecipe));
+
+        // multiple portion - last portion accepted
+        assertParseSuccess(parser, NAME_DESC_CHICKEN + PORTION_DESC_FISH + PORTION_DESC_CHICKEN
+                        + DURATION_DESC_CHICKEN + TAG_DESC_CHINESE + INGREDIENT_DESC_CHICKEN + STEP_DESC_CHICKEN,
+                new AddCommand(expectedRecipe));
+
+        // multiple durations - last duration accepted
+        assertParseSuccess(parser, NAME_DESC_CHICKEN + PORTION_DESC_CHICKEN + DURATION_DESC_FISH
+                        + DURATION_DESC_CHICKEN + TAG_DESC_CHINESE + INGREDIENT_DESC_CHICKEN + STEP_DESC_CHICKEN,
+                new AddCommand(expectedRecipe));
 //
 //        // multiple addresses - last address accepted
 //        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_AMY
@@ -45,7 +51,7 @@ public class AddCommandParserTest {
 //                .build();
 //        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
 //                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedRecipeMultipleTags));
-//    }
+    }
 
     @Test
     public void parse_optionalFieldsMissing_success() {

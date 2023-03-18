@@ -37,6 +37,8 @@ public class IngredientTest {
         Assertions.assertFalse(Ingredient.isValidIngredient("")); // empty string
         Assertions.assertFalse(Ingredient.isValidIngredient(" ")); // spaces only
         Assertions.assertFalse(Ingredient.isValidIngredient("9011p041")); // numbers within alphabets
+        // FAILED ALL NUMBERS CASE
+//        Assertions.assertFalse(Ingredient.isValidIngredient("90117041")); // numbers within alphabets
 
         // valid ingredient
         Assertions.assertTrue(Ingredient.isValidIngredient("salt")); // non-numeric
