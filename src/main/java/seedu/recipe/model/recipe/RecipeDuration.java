@@ -59,4 +59,12 @@ public class RecipeDuration {
     public TimeUnit getTimeUnit() {
         return timeUnit;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof RecipeDuration // instanceof handles nulls
+                && (time == (((RecipeDuration) other).time)
+                    && timeUnit.equals(((RecipeDuration) other).timeUnit))); // state check
+    }
 }
