@@ -8,17 +8,19 @@ import static seedu.recipe.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable, is valid as declared in {@link #isValidStep(String)}
  */
 public class Step {
-
     public static final String MESSAGE_CONSTRAINTS =
-            "Steps should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Steps should consist of 2 or more space separated alphanumeric words, and "
+            + "should not be blank. Singular tokens such as '.', ',', ':', ';', '(', ')' are allowed,"
+            + "but their use should be kept to a minimum.";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input. The string
      * should also not end with whitespace.
      */
-    public static final String VALIDATION_REGEX = "^(\\S+)(\\s+\\S+)*(?!\n)$";
-
+    public static final String VALIDATION_REGEX =
+            "^[A-Za-z0-9]+([\\-,/.][A-Za-z0-9]+)?[.,:;]?"
+            + "(\\s+[(]?([A-Za-z0-9]+|[0-9]+\\.[0-9]+)([\\-,/.]([A-Za-z0-9]+|([0-9]+\\.[0-9]+)))?[.,!:;)]{0,2})+";
     public final String description;
 
     /**
@@ -39,12 +41,19 @@ public class Step {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return description;
     }
 
     @Override
     public int hashCode() {
         return description.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o == this
+                || o instanceof Step
+                && ((Step) o).description.equals(this.description);
     }
 }
