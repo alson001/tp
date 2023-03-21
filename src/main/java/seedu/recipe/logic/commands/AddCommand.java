@@ -1,24 +1,29 @@
 package seedu.recipe.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.recipe.logic.parser.CliSyntax.*;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_DURATION;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_INGREDIENT;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_PORTION;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_STEP;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.recipe.logic.commands.exceptions.CommandException;
 import seedu.recipe.model.Model;
 import seedu.recipe.model.recipe.Recipe;
 
 /**
- * Adds a recipe to the address book.
+ * Adds a recipe to the recipe book.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the recipe book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
-            + PREFIX_DURATION + "DURATION "
-            + PREFIX_PORTION + "PORTION "
+            + "[" + PREFIX_DURATION + "DURATION] "
+            + "[" + PREFIX_PORTION + "PORTION] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "[" + PREFIX_INGREDIENT + "INGREDIENT]...\n"
             + "[" + PREFIX_STEP + "STEP]...\n"
@@ -36,7 +41,7 @@ public class AddCommand extends Command {
             + PREFIX_STEP + "In a bowl, combine the parmesan and the egg yolks";
 
     public static final String MESSAGE_SUCCESS = "New recipe added: %1$s";
-    public static final String MESSAGE_DUPLICATE_RECIPE = "This recipe already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_RECIPE = "This recipe already exists in the recipe book";
 
     private final Recipe toAdd;
 

@@ -34,7 +34,7 @@ public interface Logic {
     ObservableList<Recipe> getFilteredRecipeList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' recipe book file path.
      */
     Path getRecipeBookFilePath();
 

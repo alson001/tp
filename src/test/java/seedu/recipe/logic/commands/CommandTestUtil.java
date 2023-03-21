@@ -2,12 +2,12 @@ package seedu.recipe.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_DURATION;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_INGREDIENT;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_PORTION;
-import static seedu.recipe.logic.parser.CliSyntax.PREFIX_DURATION;
-import static seedu.recipe.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.recipe.logic.parser.CliSyntax.PREFIX_INGREDIENT;
 import static seedu.recipe.logic.parser.CliSyntax.PREFIX_STEP;
+import static seedu.recipe.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.recipe.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import java.util.List;
 
 import seedu.recipe.commons.core.index.Index;
 import seedu.recipe.logic.commands.exceptions.CommandException;
-import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.Model;
+import seedu.recipe.model.RecipeBook;
 import seedu.recipe.model.recipe.NameContainsKeywordsPredicate;
 import seedu.recipe.model.recipe.Recipe;
 import seedu.recipe.testutil.EditRecipeDescriptorBuilder;
@@ -57,7 +57,9 @@ public class CommandTestUtil {
 
     public static final String INVALID_DURATION_DESC = " " + PREFIX_DURATION + "10"; // missing units
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "Chinese*"; // '*' not allowed in tags
-    public static final String INVALID_INGREDIENT_DESC = " " + PREFIX_INGREDIENT + "2"; // number not allowed for ingredient
+
+    // number not allowed for ingredient
+    public static final String INVALID_INGREDIENT_DESC = " " + PREFIX_INGREDIENT + "2";
     public static final String INVALID_STEP_DESC = " " + PREFIX_STEP + ""; // empty string not allowed for step
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
@@ -77,14 +79,13 @@ public class CommandTestUtil {
                 .withSteps(VALID_STEP_FISH).build();
     }
 
-
     /**
      * Executes the given {@code command}, confirms that <br>
      * - the returned {@link CommandResult} matches {@code expectedCommandResult} <br>
      * - the {@code actualModel} matches {@code expectedModel}
      */
     public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
-            Model expectedModel) {
+                                            Model expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
             assertEquals(expectedCommandResult, result);
@@ -99,7 +100,7 @@ public class CommandTestUtil {
      * that takes a string {@code expectedMessage}.
      */
     public static void assertCommandSuccess(Command command, Model actualModel, String expectedMessage,
-            Model expectedModel) {
+                                            Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
