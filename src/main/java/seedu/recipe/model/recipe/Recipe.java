@@ -98,6 +98,7 @@ public class Recipe {
     }
 
     public void setSteps(Step... steps) {
+        this.steps.clear();
         this.steps.addAll(List.of(steps));
     }
 

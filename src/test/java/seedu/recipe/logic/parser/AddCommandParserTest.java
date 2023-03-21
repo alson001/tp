@@ -1,7 +1,13 @@
 package seedu.recipe.logic.parser;
 
 import static seedu.recipe.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.recipe.logic.commands.CommandTestUtil.*;
+import static seedu.recipe.logic.commands.CommandTestUtil.DURATION_DESC_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.INGREDIENT_DESC_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.NAME_DESC_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.PORTION_DESC_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
+import static seedu.recipe.logic.commands.CommandTestUtil.STEP_DESC_CHICKEN;
+import static seedu.recipe.logic.commands.CommandTestUtil.TAG_DESC_CHINESE;
 import static seedu.recipe.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.recipe.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.recipe.testutil.TypicalRecipes.CHICKEN;
