@@ -42,7 +42,7 @@ public class Step {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return description;
     }
 

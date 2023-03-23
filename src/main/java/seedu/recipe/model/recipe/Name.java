@@ -18,7 +18,6 @@ public class Name {
     public static final String VALIDATION_REGEX =
             "^(([1-9][0-9]?(\\-)?\\s*)?[A-Za-z]+)(\\-[A-Za-z]+)?(\\s+[A-Za-z0-9\\-]*)*$";
 
-
     public final String recipeName;
 
     /**
