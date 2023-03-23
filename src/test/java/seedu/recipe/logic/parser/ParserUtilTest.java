@@ -123,21 +123,18 @@ public class ParserUtilTest {
         assertThrows(ParseException.class, () -> ParserUtil.parseDuration(INVALID_DURATION));
     }
 
+    @Test
+    public void parseDuration_validValueWithoutWhitespace_returnsDuration() throws Exception {
+        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
+        assertEquals(expectedDuration, ParserUtil.parseDuration(VALID_DURATION));
+    }
 
-    //Duration has no equals method
-//    @Test
-//    public void parseDuration_validValueWithoutWhitespace_returnsDuration() throws Exception {
-//        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
-//        assertEquals(expectedDuration, ParserUtil.parseDuration(VALID_DURATION));
-//    }
-
-    //Duration has no equals method
-//    @Test
-//    public void parseDuration_validValueWithWhitespace_returnsTrimmedDuration() throws Exception {
-//        String durationWithWhitespace = WHITESPACE + VALID_DURATION + WHITESPACE;
-//        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
-//        assertEquals(expectedDuration, ParserUtil.parseDuration(durationWithWhitespace));
-//    }
+    @Test
+    public void parseDuration_validValueWithWhitespace_returnsTrimmedDuration() throws Exception {
+        String durationWithWhitespace = WHITESPACE + VALID_DURATION + WHITESPACE;
+        RecipeDuration expectedDuration = RecipeDuration.of(VALID_DURATION);
+        assertEquals(expectedDuration, ParserUtil.parseDuration(durationWithWhitespace));
+    }
 
     @Test
     public void parseTag_null_throwsNullPointerException() {
@@ -277,5 +274,4 @@ public class ParserUtilTest {
 
         assertEquals(expectedStepList, actualStepList);
     }
-
 }
