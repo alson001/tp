@@ -164,8 +164,8 @@ public class RecipeTest {
     public void setIngredients() {
         List<Ingredient> newIngredientList = new ArrayList<>(CACIO_INGREDIENTS);
         Ingredient[] ingredientsToAdd = new Ingredient[] {
-                new Ingredient("Ingredient one"),
-                new Ingredient("Ingredient two")
+            new Ingredient("Ingredient one"),
+            new Ingredient("Ingredient two")
         };
         Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
         test.setIngredients(ingredientsToAdd);
@@ -182,8 +182,8 @@ public class RecipeTest {
     @Test
     public void setSteps() {
         Step[] newSteps = new Step[] {
-                new Step("Step one"),
-                new Step("Step two")
+            new Step("Step one"),
+            new Step("Step two")
         };
         Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
         test.setSteps(newSteps);
