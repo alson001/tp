@@ -145,8 +145,8 @@ public class RecipeTest {
     public void setTags() {
         Set<Tag> newTagSet = new HashSet<>(CACIO_TAGS);
         Tag[] tagsToAdd = new Tag[] {
-                new Tag("Tag one"),
-                new Tag("Tag two")
+            new Tag("Tag one"),
+            new Tag("Tag two")
         };
         Recipe test = new RecipeBuilder(CACIO_E_PEPE).build();
         test.setTags(tagsToAdd);
