@@ -1,11 +1,5 @@
 package seedu.recipe.storage;
 
-
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,16 +8,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+/**
+ * API to export current RecipeBook
+ */
 public class ExportManager {
 
     private final Path recipeBookFilePath = Paths.get("data", "recipebook.json");
-
-    private boolean hasJsonExtension;
+    private boolean hasJsonExtension = false;
 
     public ExportManager() {
-        hasJsonExtension = false;
     }
 
+    /**
+     * Displays a file chooser dialog and exports the recipebook to a JSON file.
+     * If file exists, there will be a prompt asking whether to overwrite it.
+     * @throws IOException if there is an error while writing to the file.
+     */
     public void execute() throws IOException {
         JFileChooser fileChooser = createFile();
         // change the icon and dialog title
@@ -49,6 +55,10 @@ public class ExportManager {
         jFrame.dispose();
     }
 
+    /**
+     * Sets a custom icon for the file chooser dialog.
+     * @return the JFrame containing the custom icon.
+     */
     protected static JFrame setIcon() {
         // Set a custom icon for the JFileChooser
         File iconFile = new File("src/main/resources/images/recipebook_icon1.png");
@@ -65,14 +75,23 @@ public class ExportManager {
         return jFrame;
     }
 
-    public JFileChooser createFile() {
+    /**
+     * Creates a file chooser dialog with a filter for JSON files.
+     * @return the file chooser dialog.
+     */
+    private JFileChooser createFile() {
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + "/Downloads");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
         fileChooser.setFileFilter(filter);
         return fileChooser;
     }
 
-    public boolean exists(JFileChooser chooser) {
+    /**
+     * Checks if the selected file already exists.
+     * @param chooser the file chooser dialog.
+     * @return true if the file exists, false otherwise.
+     */
+    private boolean exists(JFileChooser chooser) {
         File selectedFile = chooser.getSelectedFile();
         String filePath = selectedFile.getAbsolutePath();
         if (!filePath.endsWith(".json")) {
@@ -87,13 +106,18 @@ public class ExportManager {
         return false;
     }
 
-    public void writeToFile(JFileChooser chooser) throws IOException {
+    /**
+     * Writes the contents of the recipebook JSON file to the selected file.
+     * @param chooser the file chooser dialog.
+     * @throws IOException if there is an error while writing to the file.
+     */
+    private void writeToFile(JFileChooser chooser) throws IOException {
         FileReader fr = new FileReader(recipeBookFilePath.toFile());
         FileWriter fw;
         if (hasJsonExtension) {
             fw = new FileWriter(chooser.getSelectedFile());
         } else {
-            fw = new FileWriter(chooser.getSelectedFile()+".json");
+            fw = new FileWriter(chooser.getSelectedFile() + ".json");
         }
         try (BufferedReader reader = new BufferedReader(fr)) {
             String line;
@@ -106,6 +130,11 @@ public class ExportManager {
         fw.close();
     }
 
+    /**
+     * Example of how to use it. Erase after reading.
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         ExportManager exportManager = new ExportManager();
         exportManager.execute();
