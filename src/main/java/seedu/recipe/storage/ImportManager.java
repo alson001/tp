@@ -24,7 +24,7 @@ public class ImportManager {
         if (!importedFile.exists()) {
             return null;
         }
-        ObservableList<Recipe> importedRecipes = importedRecipes(importedFile);
+        ObservableList<Recipe> importedRecipes = importRecipes(importedFile);
         return importedRecipes;
     }
 
@@ -56,7 +56,7 @@ public class ImportManager {
         return selectedFile;
     }
 
-    public ObservableList<Recipe> importedRecipes(File selectedFile) throws DataConversionException {
+    public ObservableList<Recipe> importRecipes(File selectedFile) throws DataConversionException {
         Path filePath = selectedFile.toPath();
         System.out.println("Selected file: " + filePath.toString());
 
