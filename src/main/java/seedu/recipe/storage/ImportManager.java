@@ -11,7 +11,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import static seedu.recipe.storage.ExportManager.setIcon;
 
 
 public class ImportManager {
@@ -36,23 +39,26 @@ public class ImportManager {
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON Files", "json");
         fileChooser.setFileFilter(filter);
 
+        // change the icon and dialog title
+        JFrame jFrame = setIcon();
+        fileChooser.setDialogTitle("Import RecipeBook");
         // Show the file chooser dialog and get the result
-        int result = fileChooser.showOpenDialog(null);
+        int result = fileChooser.showOpenDialog(jFrame);
 
-        File selectedFile;
-        if (result == JFileChooser.APPROVE_OPTION) {
-            // User selected a file, get the file object
-            selectedFile = fileChooser.getSelectedFile();
-            // Check if the file is a JSON file
-            if (!selectedFile.getName().endsWith(".json")) {
-                System.out.println("Selected file is not a JSON file.");
-                return null;
-            }
-        } else {
-            // User canceled the file chooser dialog
+        // User canceled the file chooser dialog
+        if (result != JFileChooser.APPROVE_OPTION) {
             System.out.println("No file selected.");
+            jFrame.dispose();
             return null;
         }
+        File selectedFile = fileChooser.getSelectedFile();
+        // Check if the file is a JSON file
+        if (!selectedFile.getName().endsWith(".json")) {
+            System.out.println("Selected file is not a JSON file.");
+            jFrame.dispose();
+            return null;
+        }
+        jFrame.dispose();
         return selectedFile;
     }
 

@@ -1,8 +1,12 @@
 package seedu.recipe.storage;
 
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,37 +18,58 @@ public class ExportManager {
 
     private final Path recipeBookFilePath = Paths.get("data", "recipebook.json");
 
-    private boolean isOverwrite;
+    private boolean hasJsonExtension;
 
     public ExportManager() {
-        this.isOverwrite = false;
+        hasJsonExtension = false;
     }
 
     public void execute() throws IOException {
-        JFileChooser chooser = createFile();
-        int result = chooser.showSaveDialog(null);
+        JFileChooser fileChooser = createFile();
+        // change the icon and dialog title
+        JFrame jFrame = setIcon();
+        fileChooser.setDialogTitle("Export RecipeBook");
+        int result = fileChooser.showSaveDialog(jFrame);
+
         if (result == JFileChooser.APPROVE_OPTION) {
-            if (exists(chooser)) {
+            // Check if file exists already
+            if (exists(fileChooser)) {
+                String selectedFile = fileChooser.getSelectedFile().getName();
                 int response = JOptionPane.showConfirmDialog(null,
-                        "The file " + chooser.getSelectedFile().getName() + " already exists. " +
-                                "Do you want to overwrite it?",
+                        String.format("The file %s already exists. Do you want to overwrite it?", selectedFile),
                         "Confirm Overwrite",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.WARNING_MESSAGE);
                 if (response == JOptionPane.NO_OPTION) {
                     return;
                 }
-                isOverwrite = true;
             }
-            writeToFile(chooser);
+            writeToFile(fileChooser);
         }
+        jFrame.dispose();
+    }
+
+    protected static JFrame setIcon() {
+        // Set a custom icon for the JFileChooser
+        File iconFile = new File("src/main/resources/images/recipebook_icon1.png");
+        JFrame jFrame = new JFrame();
+        if (iconFile.exists()) {
+            ImageIcon icon = new ImageIcon(iconFile.getAbsolutePath());
+            Image image = icon.getImage();
+
+            jFrame.setIconImage(image);
+            jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            jFrame.setLocationByPlatform(true);
+            jFrame.pack();
+        }
+        return jFrame;
     }
 
     public JFileChooser createFile() {
-        JFileChooser chooser = new JFileChooser(System.getProperty("user.home") + "/Downloads");
+        JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + "/Downloads");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
-        chooser.setFileFilter(filter);
-        return chooser;
+        fileChooser.setFileFilter(filter);
+        return fileChooser;
     }
 
     public boolean exists(JFileChooser chooser) {
@@ -52,6 +77,8 @@ public class ExportManager {
         String filePath = selectedFile.getAbsolutePath();
         if (!filePath.endsWith(".json")) {
             filePath += ".json";
+        } else {
+            hasJsonExtension = true;
         }
         File file = new File(filePath);
         if (file.exists()) {
@@ -60,11 +87,10 @@ public class ExportManager {
         return false;
     }
 
-
     public void writeToFile(JFileChooser chooser) throws IOException {
         FileReader fr = new FileReader(recipeBookFilePath.toFile());
         FileWriter fw;
-        if (isOverwrite) {
+        if (hasJsonExtension) {
             fw = new FileWriter(chooser.getSelectedFile());
         } else {
             fw = new FileWriter(chooser.getSelectedFile()+".json");
