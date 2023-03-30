@@ -52,23 +52,6 @@ public class ImportManager {
         return importedRecipes;
     }
 
-    //Dont remove might be required for a fix
-//    public ObservableList<Recipe> uniqueImportedRecipes(ObservableList<Recipe> importedRecipes) throws
-//            DataConversionException {
-//        JsonRecipeBookStorage currentStorage = new JsonRecipeBookStorage((recipeBookFilePath));
-//        Optional<ReadOnlyRecipeBook> currentRecipeBook;
-//        try {
-//            currentRecipeBook = currentStorage.readRecipeBook();
-//        } catch (DataConversionException e) {
-//            throw e;
-//        }
-//        ObservableList<Recipe> currentRecipes = currentRecipeBook.get().getRecipeList();
-//        for (Recipe importedRecipe : importedRecipes) {
-//            if (currentRecipes.stream().anyMatch())
-//        }
-//
-//    }
-
     /**
      * Prompts the user to select a JSON file to import and returns the selected File object.
      *
